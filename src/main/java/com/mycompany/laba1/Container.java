@@ -8,84 +8,111 @@ package com.mycompany.laba1;
 import org.joda.time.DateTime;
 
 /**
+ * Class Container  is intended for store objects class Person.
+ * Field Size -describe size massiv which store objects class Person
+ * Method getSize - return field size
+ * Method setSize - set field size
+ * Method create_and_initialize() create and initialize
+ * for store objects class Person
+ * Method show(Person [] mass2) receive argument as  massiv objects
+ * of  class Person and show it elements
+ * Method getelement(Person [] mass2,int index) receive argument
+ * as  massiv objects of  class Person and index element massiv
+ * and show element massiv
+ * Method delete_element(int index) receive
+ * index element massiv and delete this element
+
  *
  * @author Data
  */
 public class Container {
+
+    /**Field size store size massiv.
+ */
     private int size;
 
-    public Container(int size) {
+
+    /**This is constructor.
+
+ *
+ * @author Data
+     * @param size
+ */
+    public Container(final int size) {
         this.size = size;
     }
 
-    public void setSize(int size) {
+     /**Method setSize set size.
+     * @param size
+ */
+    public final void setSize(int size) {
         this.size = size;
     }
 
-    public int getSize() {
+    /**Method getSize return size.
+     * @return
+ */
+    public  final int getSize() {
         return size;
     }
-    
-    
-    
-    public Person[] create_and_initialize()
+
+
+ /**Method create_and_initialize() create and initialize
+  * for store objects class Person.
+     * @return
+ */
+    public final Person[] create_and_initialize()
     {
-        int len=getSize();
-        Person[] mass=new Person[size];
+        int len = getSize();
+        Person[] mass = new Person[size];
         DateTime   date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
-        for(int i=0;i<len;i++)
+        for (int i = 0; i < len; i++)
+
         {
-            mass[i]=new Person(i, "Petrov", date, "man");
+            mass[i] = new Person(i, "Petrov", date, "man");
         }
         return mass;
     }
-    
-    public void show(Person [] mass2)
+
+    /**Method show(Person [] mass2) receive argument as
+     * massiv objects of  class Person and show it elements.
+     * @param mass2
+ */
+    public final void show(Person [] mass2)
     {
         System.out.println("Show elements massiv:");
-        for(int i=0;i<mass2.length;i++)
-        {
-            System.out.println("Id:"+mass2[i].getId()+"\n"+"NFS:"+mass2[i].getNFS()+"\n"+"Date:"+mass2[i].getDate()+"\n"+"Sex:"+mass2[i].getSex()+"\n");
+        for(Person mass21 : mass2) {
+            System.out.println("Id:" + mass21.getId() + "\n" + "NFS:" + mass21.getNFS() + "\n" + "Date:" + mass21.getDate() + "\n" + "Sex:" + mass21.getSex() + "\n");
         }
     }
-    
-    public void getelement(Person [] mass2,int index)
+
+    /**Method getelement(Person [] mass2,int index) receive argument
+     * as  massiv objects of  class Person and index element massiv and show element massiv.
+     * @param mass2
+     * @param index
+ */
+    public final void getelement(Person [] mass2,int index)
     {
-       
-        System.out.println("Get element for index:"+index);
-            System.out.println("Id:"+mass2[index].getId()+"\n"+"NFS:"+mass2[index].getNFS()+"\n"+"Date:"+mass2[index].getDate()+"\n"+"Sex:"+mass2[index].getSex()+"\n");
-        
+
+        System.out.println("Get element for index:" + index);
+            System.out.println("Id:" + mass2[index].getId() + "\n"+
+                    "NFS:" + mass2[index].getNFS() + "\n" +
+                    "Date:" + mass2[index].getDate()+ "\n" + "Sex:" +
+                    mass2[index].getSex() + "\n");
+
     }
-    
-    public void delete_element(int index)
+/**Method delete_element(int index) receive
+ * index element massiv and delete this element.
+     * @param index
+ */
+    public final void delete_element(int index)
     {
-        Person [] mass2=create_and_initialize();
-        Person [] mass3=new Person[create_and_initialize().length-1];
-        
-       /* for(int i=0;i<mass2.length;i++)
-        {
-           //for(int j=0;j<mass3.length;j++)
-        //{
-            if(i!=index) 
-            {
-               for(int j=0;j<mass3.length;j++)
-        {
-            mass3[j]=mass2[i];
-        }
-               
-            }
-          
-                
-            
-            
-       // }
-            
-        }*/
-        
-       //System.arraycopy(mass2, index + 1, mass2, index, mass2.length -(index+1));
-        System.arraycopy(mass2, 0, mass3, 0, index );
-    System.arraycopy(mass2, index+1, mass3, index, mass2.length - index-1);
-        System.out.println("Massiv without element with index:"+index);
+        Person[] mass2 = create_and_initialize();
+        Person[] mass3 = new Person[create_and_initialize().length - 1];
+        System.arraycopy(mass2, 0, mass3, 0, index);
+        System.arraycopy(mass2, index + 1, mass3, index,
+                mass2.length - index - 1);
+        System.out.println("Massiv without element with index:" + index);
         show(mass3);
     }
 }
