@@ -45,10 +45,16 @@ public class Main {
              unit_time, unit_time, unit_time);
        Person p = new Person(0, "Petrov V.V", date, "man");
        p.differenceDate();
+        Person p2 = new Person(1, "Petrov V.V", date, "man");
+
        Container c = new Container(size);
-       c.create_and_initialize();
-       c.show(c.create_and_initialize());
-       c.getelement(c.create_and_initialize(), indexGet);
-       c.delete_element(indexDelete);
+       c.add(p);
+       c.add(p2);
+      // c.add(0, "Petrov V.V", date, "man");
+        // c.add(1, "Petrov V.V", date, "man");
+
+      c.show();
+       /*c.getelement(c.create_and_initialize(), indexGet);
+       c.delete_element(indexDelete);*/
 }
  }

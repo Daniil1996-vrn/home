@@ -31,6 +31,7 @@ public class Container {
  */
     private int size;
 
+   private  Person [] mass = new Person[size];
 
     /**This is constructor.
 
@@ -38,7 +39,7 @@ public class Container {
  * @author Data
      * @param size
  */
-    public Container(final int size) {
+    public Container( int size) {
         this.size = size;
     }
 
@@ -56,33 +57,51 @@ public class Container {
         return size;
     }
 
+    public void setMass(Person[] mass) {
+        this.mass = mass;
+    }
 
- /**Method create_and_initialize() create and initialize
-  * for store objects class Person.
-     * @return
- */
-    public final Person[] create_and_initialize()
+    public Person[] getMass() {
+        return mass;
+    }
+
+
+
+
+
+
+
+
+    public  void add( Person obj)
     {
-        int len = getSize();
-        Person[] mass = new Person[size];
-        DateTime   date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
-        for (int i = 0; i < len; i++)
+
+
+     //  DateTime   date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
+
+       // Person p2 = new Person(1, "Petrov V.V", date, "man");
+        for (int i = 0; i < mass.length; i++)
 
         {
-            mass[i] = new Person(i, "Petrov", date, "man");
+           if( mass[i]==null)
+           {
+               mass[i]=obj;
+               break;
+           }
+           //new Person(i, "Petrov", date, "man");
         }
-        return mass;
+
+
     }
 
     /**Method show(Person [] mass2) receive argument as
      * massiv objects of  class Person and show it elements.
      * @param mass2
  */
-    public final void show(Person [] mass2)
+    public final void show()
     {
         System.out.println("Show elements massiv:");
-        for(Person mass21 : mass2) {
-            System.out.println("Id:" + mass21.getId() + "\n" + "NFS:" + mass21.getNFS() + "\n" + "Date:" + mass21.getDate() + "\n" + "Sex:" + mass21.getSex() + "\n");
+        for(Person el:  mass) {
+            System.out.println("Id:" + el.getId() + "\n" + "NFS:" + el.getNFS() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
         }
     }
 
@@ -91,14 +110,14 @@ public class Container {
      * @param mass2
      * @param index
  */
-    public final void getelement(Person [] mass2,int index)
+    public final void getelement(int index)
     {
 
         System.out.println("Get element for index:" + index);
-            System.out.println("Id:" + mass2[index].getId() + "\n"+
-                    "NFS:" + mass2[index].getNFS() + "\n" +
-                    "Date:" + mass2[index].getDate()+ "\n" + "Sex:" +
-                    mass2[index].getSex() + "\n");
+            System.out.println("Id:" + mass[index].getId() + "\n"+
+                    "NFS:" + mass[index].getNFS() + "\n" +
+                    "Date:" + mass[index].getDate()+ "\n" + "Sex:" +
+                    mass[index].getSex() + "\n");
 
     }
 /**Method delete_element(int index) receive
@@ -107,12 +126,12 @@ public class Container {
  */
     public final void delete_element(int index)
     {
-        Person[] mass2 = create_and_initialize();
-        Person[] mass3 = new Person[create_and_initialize().length - 1];
-        System.arraycopy(mass2, 0, mass3, 0, index);
-        System.arraycopy(mass2, index + 1, mass3, index,
-                mass2.length - index - 1);
+
+        Person[] mass2 = new Person[mass.length - 1];
+        System.arraycopy(mass, 0, mass2, 0, index);
+        System.arraycopy(mass, index + 1, mass2, index,
+                mass.length - index - 1);
         System.out.println("Massiv without element with index:" + index);
-        show(mass3);
+       // show(mass2);
     }
 }
