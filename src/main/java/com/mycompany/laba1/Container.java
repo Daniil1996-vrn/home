@@ -12,7 +12,7 @@ import org.joda.time.DateTime;
  * Field Size -describe size massiv which store objects class Person
  * Method getSize - return field size
  * Method setSize - set field size
- * Method create_and_initialize() create and initialize
+ * Method add - add object type Person in array mass of type Person
  * for store objects class Person
  * Method show(Person [] mass2) receive argument as  massiv objects
  * of  class Person and show it elements
@@ -31,9 +31,12 @@ public class Container {
  */
     private int size;
 
-   private  Person [] mass = new Person[size];
+   private  Person [] mass;
+
+   private int count = 0;
 
     /**This is constructor.
+     * In constructor we initialize property size and array mass of type Person
 
  *
  * @author Data
@@ -41,6 +44,7 @@ public class Container {
  */
     public Container( int size) {
         this.size = size;
+        mass=new Person[size];
     }
 
      /**Method setSize set size.
@@ -57,10 +61,16 @@ public class Container {
         return size;
     }
 
+     /**Method setMass set array mass of type Person .
+     * @return
+ */
     public void setMass(Person[] mass) {
         this.mass = mass;
     }
 
+     /**Method getMass() get array mass of type Person .
+     * @return
+ */
     public Person[] getMass() {
         return mass;
     }
@@ -72,45 +82,35 @@ public class Container {
 
 
 
-    public  void add( Person obj)
+    public  void add( Person obj) throws Exception
     {
 
-
-     //  DateTime   date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
-
-       // Person p2 = new Person(1, "Petrov V.V", date, "man");
-        for (int i = 0; i < mass.length; i++)
-
-        {
-           if( mass[i]==null)
-           {
-               mass[i]=obj;
-               break;
-           }
-           //new Person(i, "Petrov", date, "man");
-        }
+        if (count == size)
+            throw new Exception("capacity exceeded");
+          mass[count++] = obj;
 
 
     }
 
-    /**Method show(Person [] mass2) receive argument as
-     * massiv objects of  class Person and show it elements.
-     * @param mass2
+    /**Method show() show elements array mass of type Person
+
  */
     public final void show()
     {
         System.out.println("Show elements massiv:");
-        for(Person el:  mass) {
-            System.out.println("Id:" + el.getId() + "\n" + "NFS:" + el.getNFS() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
-        }
+        for (int i = 0; i < count; i++) {
+        Person el = mass[i];
+        System.out.println("Id:" + el.getId() + "\n" + "NFS:"
+                + el.getNFS() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
+  }
     }
 
     /**Method getelement(Person [] mass2,int index) receive argument
-     * as  massiv objects of  class Person and index element massiv and show element massiv.
-     * @param mass2
+     * as  massiv objects of  class Person and index element
+     * massiv and show element massiv.
      * @param index
  */
-    public final void getelement(int index)
+    public final void getelement(final int index)
     {
 
         System.out.println("Get element for index:" + index);
@@ -124,14 +124,20 @@ public class Container {
  * index element massiv and delete this element.
      * @param index
  */
-    public final void delete_element(int index)
+    public final void deleteElement(int index)
     {
 
-        Person[] mass2 = new Person[mass.length - 1];
+        int size2 = mass.length - 1;
+        Person[] mass2 = new Person[size2];
         System.arraycopy(mass, 0, mass2, 0, index);
         System.arraycopy(mass, index + 1, mass2, index,
                 mass.length - index - 1);
         System.out.println("Massiv without element with index:" + index);
-       // show(mass2);
+        count--;
+        mass = new Person[size2];
+        System.arraycopy(mass2, 0, mass, 0, size2); // show(ma;ss2);
+
+
+
     }
 }
