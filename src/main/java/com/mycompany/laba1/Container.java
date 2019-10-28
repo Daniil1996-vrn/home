@@ -135,7 +135,7 @@ public class Container {
         System.out.println("Massiv without element with index:" + index);
         count--;
         mass = new Person[size2];
-        System.arraycopy(mass2, 0, mass, 0, size2); // show(ma;ss2);
+        System.arraycopy(mass2, 0, mass, 0, size2); 
 
 
 

@@ -5,6 +5,7 @@
  */
 package com.mycompany.laba1;
 
+
 import org.joda.time.DateTime;
 
 /**
@@ -31,7 +32,7 @@ public class Main {
     }
 /**In method "Msin" create adnd initialize objects and call methods.
  */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         final int size = 5;
         final int indexGet = 2;
         final int indexDelete = 0;
@@ -48,11 +49,15 @@ public class Main {
         Person p2 = new Person(1, "Petrov V.V", date, "man");
 
        Container c = new Container(size);
+
        c.add(p);
        c.add(p2);
+       c.getelement(0);
       // c.add(0, "Petrov V.V", date, "man");
         // c.add(1, "Petrov V.V", date, "man");
 
+      c.show();
+      c.deleteElement(1);
       c.show();
        /*c.getelement(c.create_and_initialize(), indexGet);
        c.delete_element(indexDelete);*/
