@@ -42,23 +42,52 @@ public class Main {
         final int unit_time = 0;
 
        // System.out.println("Hello World");
-     DateTime   date = new DateTime(year, month, day, unit_time,
-             unit_time, unit_time, unit_time);
-       Person p = new Person(0, "Petrov V.V", date, "man");
-       p.differenceDate();
-        Person p2 = new Person(1, "Petrov V.V", date, "man");
+     DateTime   date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
+     DateTime   date2 = new DateTime(1960, 7, 22, 0, 0, 0, 0);
+     DateTime   date3 = new DateTime(1970, 7, 22, 0, 0, 0, 0);
+
+       Person p1 = new Person(1, "Petrov V.V", date, "man");
+        System.out.println("Age:"+p1.differenceDate());
+        Person p2 = new Person(4, "Petrov V.V", date2, "man");
+        Person p3 = new Person(5, "Petrov V.V", date3, "man");
+        Person p4 = new Person(0, "Petrov V.V", date, "man");
+        Person p5 = new Person(6, "Petrov V.V", date, "man");
+        Person p6 = new Person(7, "Petrov V.V", date, "man");
+
 
        Container c = new Container(size);
 
-       c.add(p);
+       c.add(p1);
        c.add(p2);
-       c.getelement(0);
+       c.add(p3);
+       c.add(p4);
+       c.add(p5);
+       c.add(p6);
+       System.out.println("Get element for index 0:\n"+c.getelement(0));
       // c.add(0, "Petrov V.V", date, "man");
         // c.add(1, "Petrov V.V", date, "man");
 
       c.show();
-      c.deleteElement(1);
-      c.show();
+    //  c.deleteElement(1);
+     // c.show();
+
+       /* System.out.println("Result for search:");
+        Person[] search=c.searchByParam("22/07/1965 0:0:0", 3);
+       for(int i=0;i<search.length;i++)
+       {
+           System.out.println("Id:"+ search[i].getId()+"\n"+"NFS:"+search[i].getNFS()+"\n"+ "Date:" +
+                   search[i].getDate()+"\n"+"Sex:"+search[i].getSex()+"\n");
+       }*/
+
+        System.out.println("Sort by bubble:");
+
+          Person[] bubblesort=c.bubbleSort(3);
+
+        for(int i=0;i<bubblesort.length;i++)
+       {
+           System.out.println("Id:"+ bubblesort[i].getId()+"\n"+"NFS:"+bubblesort[i].getNFS()+"\n"
+                   + "Date:"+bubblesort[i].getDate()+"\n"+"Sex:"+bubblesort[i].getSex()+"\n");
+       }
        /*c.getelement(c.create_and_initialize(), indexGet);
        c.delete_element(indexDelete);*/
 }

@@ -121,18 +121,17 @@ public class Person {
     /**Method difference_date() calculate and print age Person.
 
  */
-    public final void differenceDate()
+    public final long differenceDate()
     {
 
     DateTime now = DateTime.now();
 
 
     Period p = new Period(date, now);
-    long hours = p.getHours();
-    long minutes = p.getMinutes();
+
     long years = p.getYears();
 
-    System.out.println("Age:" + years + "\n");
+    return years;
 
     }
 

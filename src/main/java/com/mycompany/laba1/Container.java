@@ -5,7 +5,10 @@
  */
 package com.mycompany.laba1;
 
+import java.time.format.DateTimeFormatter;
 import org.joda.time.DateTime;
+import org.joda.time.Period;
+import org.joda.time.format.DateTimeFormat;
 
 /**
  * Class Container  is intended for store objects class Person.
@@ -25,7 +28,7 @@ import org.joda.time.DateTime;
  *
  * @author Data
  */
-public class Container {
+public class Container<T> {
 
     /**Field size store size massiv.
  */
@@ -61,33 +64,43 @@ public class Container {
         return size;
     }
 
-     /**Method setMass set array mass of type Person .
-     * @return
- */
-    public void setMass(Person[] mass) {
-        this.mass = mass;
-    }
-
-     /**Method getMass() get array mass of type Person .
-     * @return
- */
-    public Person[] getMass() {
-        return mass;
-    }
-
-
-
-
-
-
 
 
     public  void add( Person obj) throws Exception
     {
 
-        if (count == size)
-            throw new Exception("capacity exceeded");
-          mass[count++] = obj;
+       /* if (count == size)
+        {
+        int currentCapacity = mass.length;
+        Person[] tempArr = new Person[currentCapacity + currentCapacity];
+        for(int i = 0; i < mass.length; i++) {
+            tempArr[i] = mass[i];
+        }
+        mass = tempArr;
+
+
+        }*/
+           for (int i = 0; i < mass.length; i++)
+           {
+
+              /* if(mass[i]== null && i==mass.length)
+               {
+                    int currentCapacity = mass.length;
+        Person[] tempArr = new Person[currentCapacity + currentCapacity];
+        for(int j = 0; j < mass.length; j++) {
+            tempArr[j] = mass[j];
+        }
+        mass = tempArr;
+               }*/
+
+
+            if (mass[i] == null) {
+                mass[i] = obj;
+                break;
+            }
+        }
+            //else
+
 
 
     }
@@ -98,7 +111,7 @@ public class Container {
     public final void show()
     {
         System.out.println("Show elements massiv:");
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i <mass.length; i++) {
         Person el = mass[i];
         System.out.println("Id:" + el.getId() + "\n" + "NFS:"
                 + el.getNFS() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
@@ -110,14 +123,14 @@ public class Container {
      * massiv and show element massiv.
      * @param index
  */
-    public final void getelement(final int index)
+    public final String getelement(final int index)
     {
 
-        System.out.println("Get element for index:" + index);
-            System.out.println("Id:" + mass[index].getId() + "\n"+
+       // System.out.println("Get element for index:" + index);
+          return  "Id:" + mass[index].getId() + "\n"+
                     "NFS:" + mass[index].getNFS() + "\n" +
                     "Date:" + mass[index].getDate()+ "\n" + "Sex:" +
-                    mass[index].getSex() + "\n");
+                    mass[index].getSex() + "\n";
 
     }
 /**Method delete_element(int index) receive
@@ -133,11 +146,180 @@ public class Container {
         System.arraycopy(mass, index + 1, mass2, index,
                 mass.length - index - 1);
         System.out.println("Massiv without element with index:" + index);
-        count--;
+     //   count--;
         mass = new Person[size2];
-        System.arraycopy(mass2, 0, mass, 0, size2); 
+        System.arraycopy(mass2, 0, mass, 0, size2);
+
 
 
 
     }
+
+   public Person[] searchByParam(String value,int numberParam) throws Exception
+   {
+       Person[] search = new Person[size];
+
+       switch(numberParam)
+       {
+           case 1:
+           {
+              for(int i=0;i<mass.length;i++)
+              {
+                 int buf=Integer.parseInt(value);
+                  if (mass[i].getId()==buf) {
+                      search[i]=mass[i];
+
+                  }
+                  else
+                  {
+                      throw  new Exception("not found");
+                      //System.out.println( mass[i].getId());
+
+                  }
+
+
+              }
+
+           }
+               break;
+               case 2:
+               {
+                   for(int i=0;i<mass.length;i++)
+              {
+
+                  if (mass[i].getNFS()==value) {
+                      search[i]=mass[i];
+
+                  }
+                  else
+                  {
+                      throw  new Exception("not found");
+                      //System.out.println( mass[i].getId());
+
+                  }
+
+
+              }
+               }
+
+               break;
+
+               case 3:
+               {
+                   DateTime date = DateTime.parse(value,
+                  DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));
+
+                  /* Period p1 = new Period(date);
+                     long year = p1.getYears();
+                      long month=p1.getMonths();
+                      long day=p1.getDays();
+                      long hour=p1.getHours();
+                        long minutes=p1.getMinutes();
+                        long seconds=p1.getSeconds();*/
+
+
+                   for(int i=0;i<mass.length;i++)
+              {
+
+
+
+
+                   /*Period p2 = new Period(mass[i].getDate());
+                     long year2 = p2.getYears();
+                      long month2=p2.getMonths();
+                      long day2=p2.getDays();
+                      long hour2=p2.getHours();
+                      long minutes2=p2.getMinutes();
+                      long seconds2=p2.getSeconds();*/
+
+
+                  //if (year==year2 && month==month2 && day==day2 && hour==hour2 && minutes==minutes2 && seconds==seconds2)
+                  if (mass[i].getDate().isEqual(date))
+                  {
+                      search[i]=mass[i];
+
+                  }
+                  else
+                  {
+                      throw  new Exception("not found");
+                      //System.out.println( mass[i].getId());
+
+                  }
+
+
+              }
+               }
+               break;
+
+               case 4:
+               {
+                     for(int i=0;i<mass.length;i++)
+              {
+
+                  if (mass[i].getSex()==value) {
+                      search[i]=mass[i];
+
+                  }
+                  else
+                  {
+                      throw  new Exception("not found");
+                      //System.out.println( mass[i].getId());
+
+                  }
+
+
+              }
+               }
+               break;
+
+       }
+        return search;
+
+
+   }
+
+   public Person[] bubbleSort(int numberParam)
+   {
+       switch(numberParam)
+       {
+           case 1:
+           {
+               for(int i=0; i<mass.length-1;i++)
+               {
+                   for(int j=mass.length-1;j>i;j--)
+                   {
+                       if(mass[j-1].getId()>mass[j].getId())
+                        {
+                Person buf=mass[j-1];
+                mass[j-1]=mass[j];
+                mass[j]=buf;
+                    }
+
+                   }
+               }
+
+           }
+           break;
+
+           case 3:
+           {
+                for(int i=0; i<mass.length-1;i++)
+               {
+                   for(int j=mass.length-1;j>i;j--)
+                   {
+                       if(mass[j-1].getDate().isBefore(mass[j].getDate()))
+                        {
+                Person buf=mass[j-1];
+                mass[j-1]=mass[j];
+                mass[j]=buf;
+                    }
+
+                   }
+               }
+           }
+           break;
+       }
+        return mass;
+   }
+
 }
