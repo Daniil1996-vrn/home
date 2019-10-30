@@ -134,7 +134,7 @@ public class Container<T> {
      *
      * @param index
      */
-    public final void deleteElement(int index) {
+    public final Person[] deleteElement(int index) {
 
         int size2 = mass.length - 1;
         Person[] mass2 = new Person[size2];
@@ -145,6 +145,7 @@ public class Container<T> {
         //   count--;
         mass = new Person[size2];
         System.arraycopy(mass2, 0, mass, 0, size2);
+        return mass;
 
     }
 

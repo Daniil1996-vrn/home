@@ -110,11 +110,33 @@ public class ContainerTest {
      * Test of deleteElement method, of class Container.
      */
     @org.junit.Test
-    public void testDeleteElement() {
+    public void testDeleteElement() throws Exception {
         System.out.println("deleteElement");
         int index = 0;
-        Container instance = null;
-        instance.deleteElement(index);
+
+        int expResult=2;
+
+        DateTime date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
+        DateTime date2 = new DateTime(1960, 7, 22, 0, 0, 0, 0);
+        DateTime date3 = new DateTime(1970, 7, 22, 0, 0, 0, 0);
+
+        Person p1 = new Person(1, "Petrov V.V", date, "man");
+        Person p2 = new Person(4, "Ivanov V.V", date2, "man");
+        Person p3 = new Person(5, "Petrov V.V", date3, "man");
+
+
+
+
+        Container instance = new Container(3);
+
+        instance.add(p1);
+        instance.add(p2);
+        instance.add(p3);
+
+      int result=  instance.deleteElement(index).length;
+        System.out.println(result);
+
+        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
       //  fail("The test case is a prototype.");
     }

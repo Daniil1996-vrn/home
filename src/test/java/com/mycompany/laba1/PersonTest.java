@@ -47,7 +47,7 @@ public class PersonTest {
     public void testDifferenceDate() {
         System.out.println("differenceDate");
         DateTime date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
-        Person instance =   new Person(1, "Petrov V.V", date, "man");;
+        Person instance = new Person(1, "Petrov V.V", date, "man");;
         long expResult = 54L;
         long result = instance.differenceDate();
 
