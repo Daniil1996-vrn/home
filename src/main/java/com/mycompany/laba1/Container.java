@@ -79,22 +79,31 @@ public class Container<T> {
 
 
         }*/
+        int firstLength=mass.length;
         for (int i = 0; i < mass.length; i++) {
 
-            /* if(mass[i]== null && i==mass.length)
+             if(mass[i]== null && i==mass.length-1)
                {
                     int currentCapacity = mass.length;
-        Person[] tempArr = new Person[currentCapacity + currentCapacity];
-        for(int j = 0; j < mass.length; j++) {
+        Person[] tempArr = new Person[currentCapacity + 1];
+        for(int j = 0; j < currentCapacity; j++) {
             tempArr[j] = mass[j];
         }
-        mass = tempArr;
-               }*/
-            if (mass[i] == null) {
+        mass = new Person[tempArr.length];
+        mass=tempArr;
+    //    mass[currentCapacity]=obj;
+     //   break;
+               }
+             if (mass[i] == null) {
                 mass[i] = obj;
                 break;
             }
+
         }
+
+
+
+
         //else
 
     }
