@@ -88,6 +88,16 @@ public class Main {
            System.out.println("Id:"+ bubblesort[i].getId()+"\n"+"NFS:"+bubblesort[i].getNFS()+"\n"
                    + "Date:"+bubblesort[i].getDate()+"\n"+"Sex:"+bubblesort[i].getSex()+"\n");
        }
+
+         System.out.println("Sort by insertion:");
+
+        Person[] insertionsort=c.insertionSort(3);
+
+        for(int i=0;i<insertionsort.length;i++)
+       {
+           System.out.println("Id:"+ insertionsort[i].getId()+"\n"+"NFS:"+insertionsort[i].getNFS()+"\n"
+                   + "Date:"+insertionsort[i].getDate()+"\n"+"Sex:"+insertionsort[i].getSex()+"\n");
+       }
        /*c.getelement(c.create_and_initialize(), indexGet);
        c.delete_element(indexDelete);*/
 }

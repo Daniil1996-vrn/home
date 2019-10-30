@@ -301,7 +301,7 @@ public class Container<T> {
            }
            break;
 
-           case 3:
+            case 3:
            {
                 for(int i=0; i<mass.length-1;i++)
                {
@@ -322,4 +322,50 @@ public class Container<T> {
         return mass;
    }
 
+   public Person[] insertionSort(int numberParam)
+   {
+       switch(numberParam)
+       {
+           case 1:
+           {
+              Person temp;
+        int item;
+    for (int counter = 1; counter < mass.length; counter++)
+    {
+        temp = mass[counter];
+        item = counter-1;
+        while(item >= 0 && mass[item].getId() > temp.getId())
+        {
+            mass[item + 1] = mass[item];
+            mass[item] = temp;
+            item--;
+        }
+    }
+
+           }
+           break;
+
+           case 3:
+           {
+
+                Person temp;
+        int item;
+    for (int counter = 1; counter < mass.length; counter++)
+    {
+        temp = mass[counter];
+        item = counter-1;
+        while(item >= 0 && mass[item].getDate().isBefore(temp.getDate()))
+        {
+            mass[item + 1] = mass[item];
+            mass[item] = temp;
+            item--;
+        }
+    }
+           }
+           break;
+       }
+        return mass;
+   }
+
 }
+
