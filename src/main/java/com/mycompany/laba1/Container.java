@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
+import sun.security.util.Length;
 
 /**
  * Class Container is intended for store objects class Person. Field Size
@@ -82,24 +83,27 @@ public class Container<T> {
         int firstLength=mass.length;
         for (int i = 0; i < mass.length; i++) {
 
-             if(mass[i]== null && i==mass.length-1)
+             if(mass[i]!=null &&i==mass.length-1)
                {
                     int currentCapacity = mass.length;
         Person[] tempArr = new Person[currentCapacity + 1];
         for(int j = 0; j < currentCapacity; j++) {
             tempArr[j] = mass[j];
         }
-        mass = new Person[tempArr.length];
-        mass=tempArr;
+       // mass = new Person[tempArr.length];
+      mass=tempArr;
+
     //    mass[currentCapacity]=obj;
      //   break;
                }
-             if (mass[i] == null) {
+              if (mass[i] == null ) {
                 mass[i] = obj;
                 break;
             }
 
+
         }
+
 
 
 
@@ -114,10 +118,15 @@ public class Container<T> {
      */
     public final void show() {
         System.out.println("Show elements massiv:");
+        System.out.println(mass.length);
         for (int i = 0; i < mass.length; i++) {
             Person el = mass[i];
+            if(mass[i]==null) ;
+            else
+            {
             System.out.println("Id:" + el.getId() + "\n" + "NFS:"
                     + el.getNFS() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
+            }
         }
     }
 
@@ -159,7 +168,7 @@ public class Container<T> {
     }
 
     public Person[] searchByParam(String value, int numberParam) throws Exception {
-        Person[] search = new Person[size];
+        Person[] search = new Person[mass.length];
 
         switch (numberParam) {
             case 1: {
@@ -184,13 +193,14 @@ public class Container<T> {
                     if (mass[i].getNFS() == value) {
                         search[i] = mass[i];
 
-                    } else {
+                    } /*else {
                         throw new Exception("not found");
                         //System.out.println( mass[i].getId());
 
-                    }
+                    }*/
 
                 }
+                if(search.length==0)  throw new Exception("not found");
             }
 
             break;
@@ -232,13 +242,17 @@ public class Container<T> {
             case 4: {
                 for (int i = 0; i < mass.length; i++) {
 
-                    if (mass[i].getSex() == value) {
+                    if(mass[i]==null) ;
+                    else
+                    {
+                    if (mass[i].getSex() == value ) {
                         search[i] = mass[i];
 
                     } else {
                         throw new Exception("not found");
                         //System.out.println( mass[i].getId());
 
+                    }
                     }
 
                 }
@@ -253,8 +267,8 @@ public class Container<T> {
     public Person[] bubbleSort(int numberParam) {
         switch (numberParam) {
             case 1: {
-                for (int i = 0; i < mass.length - 1; i++) {
-                    for (int j = mass.length - 1; j > i; j--) {
+                for (int i = 0; i < mass.length; i++) {
+                    for (int j = mass.length-1 ; j > i; j--) {
                         if (mass[j - 1].getId() > mass[j].getId()) {
                             Person buf = mass[j - 1];
                             mass[j - 1] = mass[j];
@@ -268,8 +282,8 @@ public class Container<T> {
             break;
 
             case 3: {
-                for (int i = 0; i < mass.length - 1; i++) {
-                    for (int j = mass.length - 1; j > i; j--) {
+                for (int i = 0; i < mass.length ; i++) {
+                    for (int j = mass.length-1 ; j > i; j--) {
                         if (mass[j - 1].getDate().isBefore(mass[j].getDate())) {
                             Person buf = mass[j - 1];
                             mass[j - 1] = mass[j];

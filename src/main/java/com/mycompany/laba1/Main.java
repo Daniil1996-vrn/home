@@ -53,6 +53,7 @@ public class Main {
         Person p4 = new Person(0, "Simonov V.V", date, "man");
         Person p5 = new Person(6, "Petrov V.V", date, "man");
         Person p6 = new Person(7, "Petrov V.V", date, "man");
+        Person p7 = new Person(8, "Petrov V.V", date, "man");
 
         Container c = new Container(size);
 
@@ -62,7 +63,8 @@ public class Main {
         c.add(p4);
         c.add(p5);
         c.add(p6);
-        System.out.println("Get element for index 0:\n" + c.getelement(0));
+        c.add(p7);
+        System.out.println("Get element for index 5:\n" + c.getelement(5));
         // c.add(0, "Petrov V.V", date, "man");
         // c.add(1, "Petrov V.V", date, "man");
 
@@ -70,16 +72,16 @@ public class Main {
         //  c.deleteElement(1);
         // c.show();
 
-        System.out.println("Result for search:");
-        Person[] search = c.searchByParam("Petrov V.V", 2);
+    /*    System.out.println("Result for search:");
+       Person[] search = c.searchByParam("Petrov V.V", 2);
         for (int i = 0; i < search.length; i++) {
             System.out.println("Id:" + search[i].getId() + "\n" + "NFS:" + search[i].getNFS() + "\n" + "Date:"
                     + search[i].getDate() + "\n" + "Sex:" + search[i].getSex() + "\n");
-        }
+        }*/
 
         System.out.println("Sort by bubble:");
 
-        Person[] bubblesort = c.bubbleSort(3);
+        Person[] bubblesort = c.bubbleSort(1);
 
         for (int i = 0; i < bubblesort.length; i++) {
             System.out.println("Id:" + bubblesort[i].getId() + "\n" + "NFS:" + bubblesort[i].getNFS() + "\n"
