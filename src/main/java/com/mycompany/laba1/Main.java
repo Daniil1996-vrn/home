@@ -46,15 +46,19 @@ public class Main {
         DateTime date2 = new DateTime(1960, 7, 22, 0, 0, 0, 0);
         DateTime date3 = new DateTime(1970, 7, 22, 0, 0, 0, 0);
 
+
         Person p1 = new Person(1, "Petrov V.V", date, "man");
         System.out.println("Age:" + p1.differenceDate());
-        Person p2 = new Person(4, "Ivanov V.V", date2, "man");
-        Person p3 = new Person(5, "Petrov V.V", date3, "man");
-        Person p4 = new Person(0, "Simonov V.V", date, "man");
-        Person p5 = new Person(6, "Petrov V.V", date, "man");
-        Person p6 = new Person(7, "Petrov V.V", date, "man");
-        Person p7 = new Person(8, "Petrov V.V", date, "man");
-        Person p8 = new Person(9, "Petrova V.V", date, "women");
+
+        Person p2 = new Person(5, "Petrov V.V", date, "man");
+
+        Person p3 = new Person(6, "Petrov V.V", date, "man");
+        Person p4 = new Person(7, "Petrov V.V", date, "man");
+        Person p5 = new Person(8, "Petrov V.V", date, "man");
+        Person p6 = new Person(9, "Petrova V.V", date, "women");
+         Person p7 = new Person(4, "Ivanov V.V", date2, "man");
+        Person p8 = new Person(0, "Simonov V.V", date3, "man");
+
 
         Container c = new Container(size);
 
@@ -75,11 +79,11 @@ public class Main {
         // c.show();
 
        System.out.println("Result for search:");
-       Person[] search = c.searchByParam("22/7/1965 0:0:0", 3);
-     // Person[] search = c.searchByParam("man", 4);
+       Person[] search = c.searchByParam("22/7/1970 0:0:0", 3);
+      //Person[] search = c.searchByParam("women", 4);
 
-      //Person[] search = c.searchByParam("Petrov V.V", 2);
-   
+     // Person[] search = c.searchByParam("Petrova V.V", 2);
+
         for (int i = 0; i < search.length; i++) {
             System.out.println("Id:" + search[i].getId() + "\n" + "NFS:" + search[i].getNFS() + "\n" + "Date:"
                     + search[i].getDate() + "\n" + "Sex:" + search[i].getSex() + "\n");

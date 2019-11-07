@@ -200,7 +200,9 @@ public class Container<T> {
                     if (mass[i].getNFS() == value) {
                         search[i] = mass[i];
 
-                    } /*else {
+                    }
+
+                    /*else {
                         throw new Exception("not found");
                         //System.out.println( mass[i].getId());
 
@@ -278,7 +280,7 @@ System.out.println(valueDate+"\n"+valueTime);
                         //System.out.println( mass[i].getId());
 
                     }*/
-                    else ;
+                   // else ;
 
                 }
 
@@ -289,23 +291,23 @@ System.out.println(valueDate+"\n"+valueTime);
         }
         for(int i=0;i<search.length;i++)
                 {
-                    if(search[i]==null)
+                    if(search[i]!=null)
                     {
-                        firstIndexNull=i;
-                        break;
+                        countNotNullElement++;
+                       // break;
                     }
                 }
 
-        Person[] temp=new Person[firstIndexNull];
+        Person[] temp=new Person[countNotNullElement];
 
-        /*for(int i=0;i<search.length;i++)
+        for(int i=0;i<search.length;i++)
                 {
                      for(int j=0;j<temp.length;j++)
                     if(search[i]==null);
                     else temp[j]=search[i];
-                }*/
+                }
 
-        System.arraycopy(search, 0, temp, 0, firstIndexNull);
+       // System.arraycopy(search, 0, temp, 0, firstIndexNull);
          search=temp;
         return search;
 
