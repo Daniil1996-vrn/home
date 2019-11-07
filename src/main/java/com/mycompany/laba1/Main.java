@@ -79,7 +79,9 @@ public class Main {
         // c.show();
 
        System.out.println("Result for search:");
-       Person[] search = c.searchByParam("22/7/1970 0:0:0", 3);
+
+       Person[] search = c.searchByParam("1", 1);
+      // Person[] search = c.searchByParam("22/7/1970 0:0:0", 3);
       //Person[] search = c.searchByParam("women", 4);
 
      // Person[] search = c.searchByParam("Petrova V.V", 2);

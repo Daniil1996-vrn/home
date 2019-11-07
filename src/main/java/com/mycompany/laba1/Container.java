@@ -169,8 +169,24 @@ public class Container<T> {
 
     }
 
-    public Person[] searchByParam(String value, int numberParam) throws Exception {
+     /** Method searchByParam take two parametr:
+      * @param  value - string for search.
+     * @param  numberParam - number which take:
+     * 1- field "ID";
+     * 2 -field "NFS"
+     * 3- field "Date;
+     * 4-field "sex".
+ *
+ */
 
+
+
+
+    public Person[] getMass() {
+        return mass;
+    }
+
+    public Person[] searchByParam(String value, int numberParam) throws Exception {
         int firstIndexNull=0;
 
         Person[] search=new Person[mass.length] ;
@@ -185,8 +201,8 @@ public class Container<T> {
                         search[i] = mass[i];
 
                     } /*else {
-                        throw new Exception("not found");
-                        //System.out.println( mass[i].getId());
+                    throw new Exception("not found");
+                    //System.out.println( mass[i].getId());
 
                     }*/
 
@@ -203,63 +219,63 @@ public class Container<T> {
                     }
 
                     /*else {
-                        throw new Exception("not found");
-                        //System.out.println( mass[i].getId());
+                    throw new Exception("not found");
+                    //System.out.println( mass[i].getId());
 
                     }*/
 
                 }
-              //  if(search.length==0)  throw new Exception("not found");
+                //  if(search.length==0)  throw new Exception("not found");
             }
 
             break;
 
             case 3: {
 
-               /* String buf=value;
+                /* String buf=value;
                 int indexWhiteSpace=value.indexOf(" ");
                 String valueDate=value.substring(0, indexWhiteSpace);
                 String str[] = valueDate.split("/");
 
 
 
-                 String valueTime=value.substring(indexWhiteSpace+1,value.length());
+                String valueTime=value.substring(indexWhiteSpace+1,value.length());
                 String str2[] = valueTime.split("/");
 
-System.out.println(valueDate+"\n"+valueTime);
+                System.out.println(valueDate+"\n"+valueTime);
 
                 int day = Integer.parseInt(str[0]);
                 int month = Integer.parseInt(str[1]);
                 int year=Integer.parseInt(str[2]);
-                 int hour=Integer.parseInt(str2[0]);
-                      int minutes=Integer.parseInt(str2[1]);
-                      int seconds=Integer.parseInt(str2[2]);*/
-             DateTime date = DateTime.parse(value,
-                  DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));
+                int hour=Integer.parseInt(str2[0]);
+                int minutes=Integer.parseInt(str2[1]);
+                int seconds=Integer.parseInt(str2[2]);*/
+                DateTime date = DateTime.parse(value,
+                        DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));
 
                 /* Period p1 = new Period(date);
-                     long year = p1.getYears();
-                      long month=p1.getMonths();
-                      long day=p1.getDays();
-                      long hour=p1.getHours();
-                        long minutes=p1.getMinutes();
-                        long seconds=p1.getSeconds();*/
+                long year = p1.getYears();
+                long month=p1.getMonths();
+                long day=p1.getDays();
+                long hour=p1.getHours();
+                long minutes=p1.getMinutes();
+                long seconds=p1.getSeconds();*/
                 for (int i = 0; i < mass.length; i++) {
 
                     Period p2 = new Period(mass[i].getDate(),date);
-                     int year2 = p2.getYears();
-                      int month2=p2.getMonths();
-                      int day2=p2.getDays();
-                      int hour2=p2.getHours();
-                      int minutes2=p2.getMinutes();
-                      int seconds2=p2.getSeconds();
+                    int year2 = p2.getYears();
+                    int month2=p2.getMonths();
+                    int day2=p2.getDays();
+                    int hour2=p2.getHours();
+                    int minutes2=p2.getMinutes();
+                    int seconds2=p2.getSeconds();
                     //if (year==year2 && month==month2 && day==day2 && hour==hour2 && minutes==minutes2 && seconds==seconds2)
                     if (mass[i].getDate().toLocalDate().isEqual(date.toLocalDate())) {
                         search[i] = mass[i];
 
                     } /*else {
-                        throw new Exception("not found");
-                        //System.out.println( mass[i].getId());
+                    throw new Exception("not found");
+                    //System.out.println( mass[i].getId());
 
                     }*/
 
@@ -276,11 +292,11 @@ System.out.println(valueDate+"\n"+valueTime);
                         search[i] = mass[i];
 
                     } /*else {
-                        throw new Exception("not found");
-                        //System.out.println( mass[i].getId());
+                    throw new Exception("not found");
+                    //System.out.println( mass[i].getId());
 
                     }*/
-                   // else ;
+                    // else ;
 
                 }
 
@@ -290,29 +306,34 @@ System.out.println(valueDate+"\n"+valueTime);
 
         }
         for(int i=0;i<search.length;i++)
-                {
-                    if(search[i]!=null)
-                    {
-                        countNotNullElement++;
-                       // break;
-                    }
-                }
+        {
+            if(search[i]!=null)
+            {
+                countNotNullElement++;
+                // break;
+            }
+        }
 
         Person[] temp=new Person[countNotNullElement];
 
         for(int i=0;i<search.length;i++)
-                {
-                     for(int j=0;j<temp.length;j++)
-                    if(search[i]==null);
-                    else temp[j]=search[i];
-                }
+        {
+            for(int j=0;j<temp.length;j++)
+                if(search[i]==null);
+                else temp[j]=search[i];
+        }
 
-       // System.arraycopy(search, 0, temp, 0, firstIndexNull);
-         search=temp;
+        // System.arraycopy(search, 0, temp, 0, firstIndexNull);
+        search=temp;
         return search;
-
     }
 
+    /** Method bubbleSort take one parametr
+     * @param  numberParam - number which take:
+     * 1(sort by field "ID")
+     * 3(sort by field "Date")
+ *
+ */
     public Person[] bubbleSort(int numberParam) {
         switch (numberParam) {
             case 1: {
@@ -333,7 +354,7 @@ System.out.println(valueDate+"\n"+valueTime);
             case 3: {
                 for (int i = 0; i < mass.length ; i++) {
                     for (int j = mass.length-1 ; j > i; j--) {
-                        if (mass[j - 1].getDate().isBefore(mass[j].getDate())) {
+                        if (mass[j - 1].getDate().isAfter(mass[j].getDate())) {
                             Person buf = mass[j - 1];
                             mass[j - 1] = mass[j];
                             mass[j] = buf;
@@ -347,6 +368,12 @@ System.out.println(valueDate+"\n"+valueTime);
         return mass;
     }
 
+    /** Method bubbleSort take one parametr
+     * @param  insertionSort - number which take:
+     * 1(sort by field "ID")
+     * 3(sort by field "Date")
+ *
+ */
     public Person[] insertionSort(int numberParam) {
         switch (numberParam) {
             case 1: {
@@ -372,7 +399,7 @@ System.out.println(valueDate+"\n"+valueTime);
                 for (int counter = 1; counter < mass.length; counter++) {
                     temp = mass[counter];
                     item = counter - 1;
-                    while (item >= 0 && mass[item].getDate().isBefore(temp.getDate())) {
+                    while (item >= 0 && mass[item].getDate().isAfter(temp.getDate())) {
                         mass[item + 1] = mass[item];
                         mass[item] = temp;
                         item--;
