@@ -6,10 +6,12 @@
 package com.mycompany.laba1;
 
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import org.joda.time.DateTime;
 import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
 import sun.security.util.Length;
+import org.joda.time.format.*;
 
 /**
  * Class Container is intended for store objects class Person. Field Size
@@ -168,20 +170,25 @@ public class Container<T> {
     }
 
     public Person[] searchByParam(String value, int numberParam) throws Exception {
-        Person[] search = new Person[mass.length];
 
+        int firstIndexNull=0;
+
+        Person[] search=new Person[mass.length] ;
+
+
+        int countNotNullElement=0;
         switch (numberParam) {
             case 1: {
                 for (int i = 0; i < mass.length; i++) {
                     int buf = Integer.parseInt(value);
-                    if (mass[i].getId() == buf) {
+                    if (mass[i].getId()==buf) {
                         search[i] = mass[i];
 
-                    } else {
+                    } /*else {
                         throw new Exception("not found");
                         //System.out.println( mass[i].getId());
 
-                    }
+                    }*/
 
                 }
 
@@ -200,14 +207,33 @@ public class Container<T> {
                     }*/
 
                 }
-                if(search.length==0)  throw new Exception("not found");
+              //  if(search.length==0)  throw new Exception("not found");
             }
 
             break;
 
             case 3: {
-                DateTime date = DateTime.parse(value,
-                        DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));
+
+               /* String buf=value;
+                int indexWhiteSpace=value.indexOf(" ");
+                String valueDate=value.substring(0, indexWhiteSpace);
+                String str[] = valueDate.split("/");
+
+
+
+                 String valueTime=value.substring(indexWhiteSpace+1,value.length());
+                String str2[] = valueTime.split("/");
+
+System.out.println(valueDate+"\n"+valueTime);
+
+                int day = Integer.parseInt(str[0]);
+                int month = Integer.parseInt(str[1]);
+                int year=Integer.parseInt(str[2]);
+                 int hour=Integer.parseInt(str2[0]);
+                      int minutes=Integer.parseInt(str2[1]);
+                      int seconds=Integer.parseInt(str2[2]);*/
+             DateTime date = DateTime.parse(value,
+                  DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));
 
                 /* Period p1 = new Period(date);
                      long year = p1.getYears();
@@ -218,22 +244,22 @@ public class Container<T> {
                         long seconds=p1.getSeconds();*/
                 for (int i = 0; i < mass.length; i++) {
 
-                    /*Period p2 = new Period(mass[i].getDate());
-                     long year2 = p2.getYears();
-                      long month2=p2.getMonths();
-                      long day2=p2.getDays();
-                      long hour2=p2.getHours();
-                      long minutes2=p2.getMinutes();
-                      long seconds2=p2.getSeconds();*/
+                    Period p2 = new Period(mass[i].getDate(),date);
+                     int year2 = p2.getYears();
+                      int month2=p2.getMonths();
+                      int day2=p2.getDays();
+                      int hour2=p2.getHours();
+                      int minutes2=p2.getMinutes();
+                      int seconds2=p2.getSeconds();
                     //if (year==year2 && month==month2 && day==day2 && hour==hour2 && minutes==minutes2 && seconds==seconds2)
-                    if (mass[i].getDate().isEqual(date)) {
+                    if (mass[i].getDate().toLocalDate().isEqual(date.toLocalDate())) {
                         search[i] = mass[i];
 
-                    } else {
+                    } /*else {
                         throw new Exception("not found");
                         //System.out.println( mass[i].getId());
 
-                    }
+                    }*/
 
                 }
             }
@@ -242,24 +268,45 @@ public class Container<T> {
             case 4: {
                 for (int i = 0; i < mass.length; i++) {
 
-                    if(mass[i]==null) ;
-                    else
-                    {
+
+
                     if (mass[i].getSex() == value ) {
                         search[i] = mass[i];
 
-                    } else {
+                    } /*else {
                         throw new Exception("not found");
                         //System.out.println( mass[i].getId());
 
-                    }
-                    }
+                    }*/
+                    else ;
 
                 }
+
             }
+
             break;
 
         }
+        for(int i=0;i<search.length;i++)
+                {
+                    if(search[i]==null)
+                    {
+                        firstIndexNull=i;
+                        break;
+                    }
+                }
+
+        Person[] temp=new Person[firstIndexNull];
+
+        /*for(int i=0;i<search.length;i++)
+                {
+                     for(int j=0;j<temp.length;j++)
+                    if(search[i]==null);
+                    else temp[j]=search[i];
+                }*/
+
+        System.arraycopy(search, 0, temp, 0, firstIndexNull);
+         search=temp;
         return search;
 
     }

@@ -42,7 +42,7 @@ public class Main {
         final int unit_time = 0;
 
         // System.out.println("Hello World");
-        DateTime date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
+        DateTime date = new DateTime(1965, 7, 22, 0, 0, 0);
         DateTime date2 = new DateTime(1960, 7, 22, 0, 0, 0, 0);
         DateTime date3 = new DateTime(1970, 7, 22, 0, 0, 0, 0);
 
@@ -54,6 +54,7 @@ public class Main {
         Person p5 = new Person(6, "Petrov V.V", date, "man");
         Person p6 = new Person(7, "Petrov V.V", date, "man");
         Person p7 = new Person(8, "Petrov V.V", date, "man");
+        Person p8 = new Person(9, "Petrova V.V", date, "women");
 
         Container c = new Container(size);
 
@@ -64,6 +65,7 @@ public class Main {
         c.add(p5);
         c.add(p6);
         c.add(p7);
+        c.add(p8);
         System.out.println("Get element for index 5:\n" + c.getelement(5));
         // c.add(0, "Petrov V.V", date, "man");
         // c.add(1, "Petrov V.V", date, "man");
@@ -72,12 +74,16 @@ public class Main {
         //  c.deleteElement(1);
         // c.show();
 
-    /*    System.out.println("Result for search:");
-       Person[] search = c.searchByParam("Petrov V.V", 2);
+       System.out.println("Result for search:");
+       Person[] search = c.searchByParam("22/7/1965 0:0:0", 3);
+     // Person[] search = c.searchByParam("man", 4);
+
+      //Person[] search = c.searchByParam("Petrov V.V", 2);
+   
         for (int i = 0; i < search.length; i++) {
             System.out.println("Id:" + search[i].getId() + "\n" + "NFS:" + search[i].getNFS() + "\n" + "Date:"
                     + search[i].getDate() + "\n" + "Sex:" + search[i].getSex() + "\n");
-        }*/
+        }
 
         System.out.println("Sort by bubble:");
 
