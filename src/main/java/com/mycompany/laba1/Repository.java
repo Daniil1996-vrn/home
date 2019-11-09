@@ -14,7 +14,7 @@ import sun.security.util.Length;
 import org.joda.time.format.*;
 
 /**
- * Class Container is intended for store objects class Person. Field Size
+ * Class Repository is intended for store objects class Person. Field Size
  * -describe size massiv which store objects class Person Method getSize -
  * return field size Method setSize - set field size Method add - add object
  * type Person in array mass of type Person for store objects class Person
@@ -27,7 +27,7 @@ import org.joda.time.format.*;
  *
  * @author Data
  */
-public class Container<T> {
+public class Repository {
 
     /**
      * Field size store size massiv.
@@ -46,7 +46,7 @@ public class Container<T> {
      * @author Data
      * @param size
      */
-    public Container(int size) {
+    public Repository(int size) {
         this.size = size;
         mass = new Person[size];
     }
@@ -68,6 +68,7 @@ public class Container<T> {
     public final int getSize() {
         return size;
     }
+
 
     public void add(Person obj) throws Exception {
 
@@ -126,8 +127,8 @@ public class Container<T> {
             if(mass[i]==null) ;
             else
             {
-            System.out.println("Id:" + el.getId() + "\n" + "NFS:"
-                    + el.getNFS() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
+            System.out.println("Id:" + el.getId() + "\n" + "Name:"
+                    + el.getName() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
             }
         }
     }
@@ -142,7 +143,7 @@ public class Container<T> {
 
         // System.out.println("Get element for index:" + index);
         return "Id:" + mass[index].getId() + "\n"
-                + "NFS:" + mass[index].getNFS() + "\n"
+                + "Name:" + mass[index].getName() + "\n"
                 + "Date:" + mass[index].getDate() + "\n" + "Sex:"
                 + mass[index].getSex() + "\n";
 
@@ -173,7 +174,7 @@ public class Container<T> {
       * @param  value - string for search.
      * @param  numberParam - number which take:
      * 1- field "ID";
-     * 2 -field "NFS"
+     * 2 -field "Name"
      * 3- field "Date;
      * 4-field "sex".
  *
@@ -213,7 +214,7 @@ public class Container<T> {
             case 2: {
                 for (int i = 0; i < mass.length; i++) {
 
-                    if (mass[i].getNFS() == value) {
+                    if (mass[i].getName() == value) {
                         search[i] = mass[i];
 
                     }

@@ -11,13 +11,13 @@ import org.joda.time.DateTime;
 /**
  *Class Main is the main class of this program.
  * Here: :
- * 1) Create and initialize Object date of class DateTime;
- * 2) Create and initialize Object p of class Person;
- * 3) Call method difference_date() of class Person;
- * 4) Create and initialize Object с of class Container;
- * 5) Call method show of class Container;
- * 6) Call method getelement of class Container;
- * 7) Call method delete_element of class Container;
+ 1) Create and initialize Object date of class DateTime;
+ 2) Create and initialize Object p of class Person;
+ 3) Call method difference_date() of class Person;
+ 4) Create and initialize Object с of class Repository;
+ 5) Call method show of class Repository;
+ 6) Call method getelement of class Repository;
+ 7) Call method delete_element of class Repository;
  *
  *
  * @author Data
@@ -60,7 +60,7 @@ public class Main {
         Person p8 = new Person(0, "Simonov V.V", date3, "man");
 
 
-        Container c = new Container(size);
+        Repository c = new Repository(size);
 
         c.add(p1);
         c.add(p2);
@@ -87,7 +87,7 @@ public class Main {
      // Person[] search = c.searchByParam("Petrova V.V", 2);
 
         for (int i = 0; i < search.length; i++) {
-            System.out.println("Id:" + search[i].getId() + "\n" + "NFS:" + search[i].getNFS() + "\n" + "Date:"
+            System.out.println("Id:" + search[i].getId() + "\n" + "Name:" + search[i].getName() + "\n" + "Date:"
                     + search[i].getDate() + "\n" + "Sex:" + search[i].getSex() + "\n");
         }
 
@@ -96,7 +96,7 @@ public class Main {
         Person[] bubblesort = c.bubbleSort(1);
 
         for (int i = 0; i < bubblesort.length; i++) {
-            System.out.println("Id:" + bubblesort[i].getId() + "\n" + "NFS:" + bubblesort[i].getNFS() + "\n"
+            System.out.println("Id:" + bubblesort[i].getId() + "\n" + "Name:" + bubblesort[i].getName() + "\n"
                     + "Date:" + bubblesort[i].getDate() + "\n" + "Sex:" + bubblesort[i].getSex() + "\n");
         }
 
@@ -105,7 +105,7 @@ public class Main {
         Person[] insertionsort = c.insertionSort(3);
 
         for (int i = 0; i < insertionsort.length; i++) {
-            System.out.println("Id:" + insertionsort[i].getId() + "\n" + "NFS:" + insertionsort[i].getNFS() + "\n"
+            System.out.println("Id:" + insertionsort[i].getId() + "\n" + "Name:" + insertionsort[i].getName() + "\n"
                     + "Date:" + insertionsort[i].getDate() + "\n" + "Sex:" + insertionsort[i].getSex() + "\n");
         }
         /*c.getelement(c.create_and_initialize(), indexGet);

@@ -10,31 +10,38 @@ package com.mycompany.laba1;
 
 
 import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 
 import org.joda.time.Period;
 
 /**Class Person contains four field:
  * 1) id as identifikator;
- * 2) NFS-Name Father Surname;
+ * 2) Name-Name Father Surname;
  * 3) date - date birthday
  * 4) sex - sex Person
  *
- * Methods getDate(),getSex(),getId(), getNFS() -returns values fields class
- * Methods setDate(),setSex(),setId(), setNFS() -set values fields class
+ * Methods getDate(),getSex(),getId(), getName() -returns values fields class
+ * Methods setDate(),setSex(),setId(), setName() -set values fields class
  *
  * Method difference_date() -calcute age Person
  * @author Data
  */
-public class Person {
+ public class Person implements IDivision {
     /**Filed "id" as identifikator.
 
  */
     private int id;
 
-    /**Filed "NFS"-Name Father Surname.
+    /**Filed "Name"-Name Father Surname.
 
  */
-    private String NFS;
+    private String Name;
+
+    private String FirstName;
+
+    private String LastName;
+
+    private LocalDate Birthdate;
 
 
      /**Filed date - date birthday.
@@ -46,6 +53,7 @@ public class Person {
 
  */
     private String sex;
+
 
     /**Method getDate() return date.
      * @return
@@ -65,15 +73,15 @@ public class Person {
     /**Method getId() return Id.
      * @return
  */
-    public final int getId() {
+    public  Integer getId() {
         return id;
     }
 
-     /**Method getNFS() return NFS.
+     /**Method getName() return Name.
      * @return
  */
-    public final String getNFS() {
-        return NFS;
+    public final String getName() {
+        return Name;
     }
 
 
@@ -87,15 +95,15 @@ public class Person {
     /**Method setId set field Id.
      * @param id
  */
-    public final void setId(final int id) {
+    public final void setId( Integer id) {
         this.id = id;
     }
 
-    /**Method setNFS set field NFS.
-     * @param NFS
+    /**Method setName set field Name.
+     * @param Name
  */
-    public final void setNFS(final String NFS) {
-        this.NFS = NFS;
+    public final void setName( String Name) {
+        this.Name = Name;
     }
 
     /**Method setSex set field sex.
@@ -105,15 +113,43 @@ public class Person {
         this.sex = sex;
     }
 
+    public String getFirstName() {
+        return FirstName;
+    }
+
+    public void setFirstName(String FirstName) {
+        this.FirstName = FirstName;
+    }
+
+    public String getLastName() {
+        return LastName;
+    }
+
+    public void setLastName(String LastName) {
+        this.LastName = LastName;
+    }
+
+    public LocalDate getBirthdate() {
+        return Birthdate;
+    }
+
+    public void setBirthdate(LocalDate Birthdate) {
+        this.Birthdate = Birthdate;
+    }
+
+
+
+
+
     /**This is constructor.
      * @param id
-     * @param NFS
+     * @param Name
      * @param date
      * @param sex
  */
-    public  Person(final int id, String NFS, DateTime date, String sex) {
+    public  Person(final int id, String Name, DateTime date, String sex) {
         this.id = id;
-        this.NFS = NFS;
+        this.Name = Name;
         this.date = date;
         this.sex = sex;
     }

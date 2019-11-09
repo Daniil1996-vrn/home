@@ -44,7 +44,7 @@ public class ContainerTest {
 
 
     /**
-     * Test of add method, of class Container.
+     * Test of add method, of class Repository.
      */
     @org.junit.Test
     public void testAdd() throws Exception {
@@ -59,13 +59,13 @@ public class ContainerTest {
         Person p3 = new Person(5, "Petrova V.V", date3, "women");
 
 
-        Container instance = new Container(3);
+        Repository instance = new Repository(3);
 
         instance.add(p1);
          instance.add(p2);
           instance.add(p3);
 
-         Container instance2 = new Container(3);
+         Repository instance2 = new Repository(3);
 
            instance2.add(p1);
          instance2.add(p2);
@@ -82,19 +82,19 @@ public class ContainerTest {
     }
 
     /**
-     * Test of show method, of class Container.
+     * Test of show method, of class Repository.
      */
     @org.junit.Test
     public void testShow() {
         System.out.println("show");
-        Container instance = null;
+        Repository instance = null;
         instance.show();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getelement method, of class Container.
+     * Test of getelement method, of class Repository.
      */
     @org.junit.Test
     public void testGetelement() throws Exception {
@@ -111,7 +111,7 @@ public class ContainerTest {
 
 
 
-        Container instance = new Container(5);
+        Repository instance = new Repository(5);
 
         instance.add(p1);
         instance.add(p2);
@@ -132,7 +132,7 @@ public class ContainerTest {
     }
 
     /**
-     * Test of deleteElement method, of class Container.
+     * Test of deleteElement method, of class Repository.
      */
     @org.junit.Test
     public void testDeleteElement() throws Exception {
@@ -152,7 +152,7 @@ public class ContainerTest {
 
 
 
-        Container instance = new Container(3);
+        Repository instance = new Repository(3);
 
         instance.add(p1);
         instance.add(p2);
@@ -167,7 +167,7 @@ public class ContainerTest {
     }
 
     /**
-     * Test of searchByParam method, of class Container.
+     * Test of searchByParam method, of class Repository.
      */
     @org.junit.Test
     public void testSearchByParam() throws Exception {
@@ -188,7 +188,7 @@ public class ContainerTest {
         Person p3 = new Person(5, "Petrova V.V", date3, "women");
 
 
-        Container instance = new Container(3);
+        Repository instance = new Repository(3);
 
         instance.add(p1);
         instance.add(p2);
@@ -196,7 +196,7 @@ public class ContainerTest {
 
 
 
-       // Container instance = null;
+       // Repository instance = null;
         Person[] expResult = {p1};
         Person[] result = instance.searchByParam(value, numberParam);
         assertArrayEquals(expResult, result);
@@ -218,7 +218,7 @@ public class ContainerTest {
         Person p33 = new Person(5, "Petrova V.V", date33, "women");
 
 
-        Container instance2 = new Container(3);
+        Repository instance2 = new Repository(3);
 
         instance2.add(p11);
         instance2.add(p22);
@@ -226,7 +226,7 @@ public class ContainerTest {
 
 
 
-       // Container instance = null;
+       // Repository instance = null;
         Person[] expResult2 = {p22};
         Person[] result2 = instance2.searchByParam(value2, numberParam2);
         assertArrayEquals(expResult2, result2);
@@ -247,7 +247,7 @@ public class ContainerTest {
         Person p333 = new Person(5, "Petrova V.V", date333, "women");
 
 
-        Container instance3 = new Container(3);
+        Repository instance3 = new Repository(3);
 
         instance3.add(p111);
         instance3.add(p222);
@@ -255,7 +255,7 @@ public class ContainerTest {
 
 
 
-       // Container instance = null;
+       // Repository instance = null;
         Person[] expResult3 = {p333};
         Person[] result3 = instance2.searchByParam(value3, numberParam3);
         assertArrayEquals(expResult3, result3);
@@ -276,7 +276,7 @@ public class ContainerTest {
         Person p3333 = new Person(5, "Petrova V.V", date3333, "women");
 
 
-        Container instance4 = new Container(3);
+        Repository instance4 = new Repository(3);
 
         instance4.add(p1111);
         instance4.add(p2222);
@@ -284,7 +284,7 @@ public class ContainerTest {
 
 
 
-       // Container instance = null;
+       // Repository instance = null;
         Person[] expResult4 = {p1111,p2222};
         Person[] result4 = instance2.searchByParam(value4, numberParam4);
         assertArrayEquals(expResult4, result4);
@@ -294,7 +294,7 @@ public class ContainerTest {
     }
 
     /**
-     * Test of bubbleSort method, of class Container.
+     * Test of bubbleSort method, of class Repository.
      */
     @org.junit.Test
     public void testBubbleSort() throws Exception {
@@ -316,7 +316,7 @@ public class ContainerTest {
 
 
       //  Person [] arr={p4,p1,p2,p3,p5};
-        Container instance = new Container(5);
+        Repository instance = new Repository(5);
 
         instance.add(p1);
         instance.add(p2);
@@ -346,7 +346,7 @@ public class ContainerTest {
 
 
       //  Person [] arr2={p4,p1,p2,p3,p5};
-        Container instance2 = new Container(5);
+        Repository instance2 = new Repository(5);
 
         instance2.add(p11);
         instance2.add(p22);
@@ -362,7 +362,7 @@ public class ContainerTest {
     }
 
     /**
-     * Test of insertionSort method, of class Container.
+     * Test of insertionSort method, of class Repository.
      */
     @org.junit.Test
     public void testInsertionSort() throws Exception {
@@ -384,7 +384,7 @@ public class ContainerTest {
 
 
         Person [] arr={p4,p1,p2,p3,p5};
-        Container instance = new Container(5);
+        Repository instance = new Repository(5);
 
         instance.add(p1);
         instance.add(p2);
