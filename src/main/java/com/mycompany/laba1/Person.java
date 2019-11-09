@@ -9,8 +9,9 @@ package com.mycompany.laba1;
 
 
 
+import java.math.BigDecimal;
 import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
+import java.time.LocalDate;
 
 import org.joda.time.Period;
 
@@ -26,7 +27,7 @@ import org.joda.time.Period;
  * Method difference_date() -calcute age Person
  * @author Data
  */
- public class Person implements IDivision {
+ public class Person implements IDivision,IPerson {
     /**Filed "id" as identifikator.
 
  */
@@ -54,6 +55,11 @@ import org.joda.time.Period;
  */
     private String sex;
 
+    private Gender Gender;
+
+   private  BigDecimal Salary;
+
+   public IDivision IDivision;
 
     /**Method getDate() return date.
      * @return
@@ -80,7 +86,7 @@ import org.joda.time.Period;
      /**Method getName() return Name.
      * @return
  */
-    public final String getName() {
+   public final String getName() {
         return Name;
     }
 
@@ -102,7 +108,7 @@ import org.joda.time.Period;
     /**Method setName set field Name.
      * @param Name
  */
-    public final void setName( String Name) {
+    public  void setName( String Name) {
         this.Name = Name;
     }
 
@@ -117,25 +123,54 @@ import org.joda.time.Period;
         return FirstName;
     }
 
-    public void setFirstName(String FirstName) {
+    public String setFirstName(String FirstName) {
         this.FirstName = FirstName;
+        return this.FirstName;
+
     }
 
     public String getLastName() {
         return LastName;
     }
 
-    public void setLastName(String LastName) {
+    public String setLastName(String LastName) {
         this.LastName = LastName;
+        return this.LastName;
     }
 
     public LocalDate getBirthdate() {
         return Birthdate;
     }
 
-    public void setBirthdate(LocalDate Birthdate) {
+    public LocalDate setBirthdate(LocalDate Birthdate) {
         this.Birthdate = Birthdate;
+        return this.Birthdate;
     }
+
+    public BigDecimal getSalary() {
+        return Salary;
+    }
+
+    public void setSalary(BigDecimal Salary) {
+        this.Salary = Salary;
+    }
+
+    public Gender getGender() {
+        return Gender;
+    }
+
+    public void setGender(Gender Gender) {
+        this.Gender = Gender;
+    }
+
+    public IDivision getDivision() {
+        return IDivision;
+    }
+
+   	public void setDivision(IDivision division) {
+        this.IDivision = IDivision;
+    }
+
 
 
 
@@ -157,7 +192,7 @@ import org.joda.time.Period;
     /**Method difference_date() calculate and print age Person.
 
  */
-    public final long differenceDate()
+    public Integer getAge()
     {
 
     DateTime now = DateTime.now();
@@ -165,7 +200,7 @@ import org.joda.time.Period;
 
     Period p = new Period(date, now);
 
-    long years = p.getYears();
+    int years = p.getYears();
 
     return years;
 

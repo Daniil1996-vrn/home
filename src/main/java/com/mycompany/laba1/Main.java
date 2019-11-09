@@ -48,7 +48,7 @@ public class Main {
 
 
         Person p1 = new Person(1, "Petrov V.V", date, "man");
-        System.out.println("Age:" + p1.differenceDate());
+        System.out.println("Age:" + p1.getAge());
 
         Person p2 = new Person(5, "Petrov V.V", date, "man");
 
@@ -108,6 +108,8 @@ public class Main {
             System.out.println("Id:" + insertionsort[i].getId() + "\n" + "Name:" + insertionsort[i].getName() + "\n"
                     + "Date:" + insertionsort[i].getDate() + "\n" + "Sex:" + insertionsort[i].getSex() + "\n");
         }
+
+        c.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\laba1\\src\\main\\resources\\persons.csvy");
         /*c.getelement(c.create_and_initialize(), indexGet);
        c.delete_element(indexDelete);*/
     }

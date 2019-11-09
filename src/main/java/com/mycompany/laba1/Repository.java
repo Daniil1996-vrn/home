@@ -12,7 +12,7 @@ import org.joda.time.Period;
 import org.joda.time.format.DateTimeFormat;
 import sun.security.util.Length;
 import org.joda.time.format.*;
-
+import java.io.*;
 /**
  * Class Repository is intended for store objects class Person. Field Size
  * -describe size massiv which store objects class Person Method getSize -
@@ -410,6 +410,19 @@ public class Repository {
             break;
         }
         return mass;
+    }
+
+    public void readFromFileInRepository(String fileName) throws FileNotFoundException, IOException
+    {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        File f = new File(fileName);
+        BufferedReader fin = new BufferedReader(new FileReader(f));
+        String name;
+        String line;
+        System.out.println("Print File "+f.getName()+"? y/n");
+        name = br.readLine();
+        if(name.equals("y"))
+        while ((line = fin.readLine()) != null) System.out.println(line);
     }
 
 }
