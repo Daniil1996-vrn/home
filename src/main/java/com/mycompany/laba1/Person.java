@@ -182,28 +182,34 @@ import org.joda.time.Period;
      * @param date
      * @param sex
  */
-    public  Person(final int id, String Name, DateTime date, String sex) {
+    public Person(int id,  String FirstName, String LastName, LocalDate Birthdate, Gender Gender,String Name, BigDecimal Salary)
+    {
+
         this.id = id;
-        this.Name = Name;
-        this.date = date;
-        this.sex = sex;
+
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Birthdate = Birthdate;
+
+
+        this.Gender = Gender;
+         this.Name = Name;
+        this.Salary = Salary;
+
+
     }
 
     /**Method difference_date() calculate and print age Person.
-
- */
-    public Integer getAge()
-    {
-
-    DateTime now = DateTime.now();
+     */
+    public Integer getAge() {
+        DateTime now = DateTime.now();
 
 
-    Period p = new Period(date, now);
+        Period p = new Period(date, now);
 
-    int years = p.getYears();
+        int years = p.getYears();
 
-    return years;
-
+        return years;
     }
 
 }

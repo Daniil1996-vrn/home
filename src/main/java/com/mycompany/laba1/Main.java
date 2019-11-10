@@ -47,7 +47,7 @@ public class Main {
         DateTime date3 = new DateTime(1970, 7, 22, 0, 0, 0, 0);
 
 
-        Person p1 = new Person(1, "Petrov V.V", date, "man");
+       /* Person p1 = new Person(1, "Petrov V.V", date, "man");
         System.out.println("Age:" + p1.getAge());
 
         Person p2 = new Person(5, "Petrov V.V", date, "man");
@@ -107,9 +107,26 @@ public class Main {
         for (int i = 0; i < insertionsort.length; i++) {
             System.out.println("Id:" + insertionsort[i].getId() + "\n" + "Name:" + insertionsort[i].getName() + "\n"
                     + "Date:" + insertionsort[i].getDate() + "\n" + "Sex:" + insertionsort[i].getSex() + "\n");
-        }
+        }*/
 
-        c.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\laba1\\src\\main\\resources\\persons.csvy");
+        Repository c2=new Repository(25899);
+      Person[] readFromFile= c2.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\laba1\\src\\main\\resources\\persons.csv");
+        System.out.println(readFromFile.length);
+        for (int i=0;i<readFromFile.length;i++) {
+            System.out.println(
+                    "Id:"+readFromFile[i].getId()+"\n"
+                    +"First name:"+readFromFile[i].getFirstName()+"\n"
+                    +"Last name:"+readFromFile[i].getLastName()+"\n"
+                      +"Gender:"+readFromFile[i].getGender()+"\n"
+                     +"Birthdate:"+readFromFile[i].getBirthdate()+"\n"
+                    +"Division:"+readFromFile[i].getName()+"\n"
+                    +"Salary:"+readFromFile[i].getSalary()+"\n\n"
+
+            );
+
+        }
+   //  c2.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\laba1\\src\\main\\resources\\persons.csv");
+
         /*c.getelement(c.create_and_initialize(), indexGet);
        c.delete_element(indexDelete);*/
     }
