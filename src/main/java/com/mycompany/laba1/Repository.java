@@ -15,6 +15,8 @@ import org.joda.time.format.*;
 import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 /**
  * Class Repository is intended for store objects class Person. Field Size
@@ -92,7 +94,7 @@ public class Repository {
              if(mass[i]!=null &&i==mass.length-1)
                {
                     int currentCapacity = mass.length;
-        Person[] tempArr = new Person[currentCapacity + 1];
+        Person[] tempArr = new Person[currentCapacity*2];
         for(int j = 0; j < currentCapacity; j++) {
             tempArr[j] = mass[j];
         }
@@ -116,6 +118,26 @@ public class Repository {
 
         //else
 
+    }
+
+    public void  add(int index, Person person) throws Exception
+    {
+        if(mass[index]==null) mass[index]=person;
+        else throw new Exception("This index contains element");
+    }
+
+    public Person get(int index)
+    {
+        return mass[index];
+    }
+
+    public List<Person> toList() {
+        ArrayList<Person> arr = new ArrayList<>();
+        for (int i = 0; i < mass.length; i++) {
+            if(mass[i]!=null)
+            arr.add(mass[i]);
+        }
+        return arr;
     }
 
     /**
@@ -470,6 +492,7 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
 
 
              Person bufObject=new Person( id,   firstName, lastName, date, gender, Name, money);
+             if(bufObject!=null)
                 add(bufObject);
 
           /*  System.out.println(

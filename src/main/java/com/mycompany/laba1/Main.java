@@ -6,6 +6,12 @@
 package com.mycompany.laba1;
 
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.LocalDate;
+import java.time.Month;
+import java.util.Iterator;
+import java.util.List;
 import org.joda.time.DateTime;
 
 /**
@@ -42,22 +48,25 @@ public class Main {
         final int unit_time = 0;
 
         // System.out.println("Hello World");
-        DateTime date = new DateTime(1965, 7, 22, 0, 0, 0);
-        DateTime date2 = new DateTime(1960, 7, 22, 0, 0, 0, 0);
-        DateTime date3 = new DateTime(1970, 7, 22, 0, 0, 0, 0);
+        LocalDate localDate1 = LocalDate.of(1960, Month.MAY, 14);
+        LocalDate localDate2 = LocalDate.of(1965, Month.MAY, 14);
+        LocalDate localDate3 = LocalDate.of(1970, Month.MAY, 14);
 
+        BigDecimal bd=new BigDecimal(20000);
+        BigDecimal bd2=new BigDecimal(25000);
+        BigDecimal bd3=new BigDecimal(35000);
 
-       /* Person p1 = new Person(1, "Petrov V.V", date, "man");
+        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Petrov V.V", date, "man");
+        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
 
-        Person p3 = new Person(6, "Petrov V.V", date, "man");
-        Person p4 = new Person(7, "Petrov V.V", date, "man");
-        Person p5 = new Person(8, "Petrov V.V", date, "man");
-        Person p6 = new Person(9, "Petrova V.V", date, "women");
-         Person p7 = new Person(4, "Ivanov V.V", date2, "man");
-        Person p8 = new Person(0, "Simonov V.V", date3, "man");
+        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p4 = new Person(7, "Valeriy", "Petrov", localDate1, Gender.MALE, "C", bd);
+        Person p5 = new Person(8, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p6 = new Person(9, "Petrova", "Vera", localDate1, Gender.FEMALE, "B", bd);
+        Person p7 = new Person(10, "Ivanov", "Ivan", localDate1, Gender.MALE, "A", bd2);
+        Person p8 = new Person(0, "Smirnov", "Vladimir", localDate1, Gender.MALE, "A", bd3);
 
 
         Repository c = new Repository(size);
@@ -70,7 +79,40 @@ public class Main {
         c.add(p6);
         c.add(p7);
         c.add(p8);
-        System.out.println("Get element for index 5:\n" + c.getelement(5));
+
+        System.out.println("Add element for index 8");
+        c.add(8, p8);
+        System.out.println("Convert Array to List:");
+
+        List<Person> l=c.toList();
+
+        Iterator iterator = l.iterator();
+
+        while (iterator.hasNext()) {
+           Person next = (Person) iterator.next();
+
+            System.out.println("Id:"+next.getId()+"\n"
+            +"First Name:"+next.getFirstName()+"\n"
+            +"Last Name:"+next.getLastName()+"\n"
+            +"Birthdate:"+next.getBirthdate()+"\n"
+            +"Gender:"+next.getGender()+"\n"
+            +"IDivision Name:"+next.getName()+"\n"
+            +"Salary:"+next.getSalary()+"\n\n");
+
+        }
+        {
+           /* System.out.println("Id:"+iterator.next().+"\n"
+            +"First Name:"+p.getFirstName()+"\n"
+            +"Last Name:"+p.getLastName()+"\n"
+            +"Birthdate:"+p.getBirthdate()+"\n"
+            +"Gender:"+p.getGender()+"\n"
+            +"IDivision Name:"+p.getName()+"\n"
+            +"Salary:"+p.getSalary()+"\n\n");*/
+            //System.out.println(iterator.next() + "\n");
+        }
+
+
+     /*   System.out.println("Get element for index 5:\n" + c.getelement(5));
         // c.add(0, "Petrov V.V", date, "man");
         // c.add(1, "Petrov V.V", date, "man");
 
@@ -109,7 +151,7 @@ public class Main {
                     + "Date:" + insertionsort[i].getDate() + "\n" + "Sex:" + insertionsort[i].getSex() + "\n");
         }*/
 
-        Repository c2=new Repository(25899);
+        Repository c2=new Repository(500);
       Person[] readFromFile= c2.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\laba1\\src\\main\\resources\\persons.csv");
         System.out.println(readFromFile.length);
         for (int i=0;i<readFromFile.length;i++) {
