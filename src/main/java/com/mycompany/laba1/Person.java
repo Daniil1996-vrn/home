@@ -46,13 +46,13 @@ public class Person implements IDivision, IPerson {
      * Filed date - date birthday.
      *
      */
-    private DateTime date;
+
 
     /**
      * Filed sex - sex Person.
      *
      */
-    private String sex;
+
 
     private Gender Gender;
 
@@ -60,23 +60,9 @@ public class Person implements IDivision, IPerson {
 
     public IDivision IDivision;
 
-    /**
-     * Method getDate() return date.
-     *
-     * @return
-     */
-    public final DateTime getDate() {
-        return date;
-    }
 
-    /**
-     * Method getSex() return sex.
-     *
-     * @return
-     */
-    public final String getSex() {
-        return sex;
-    }
+
+
 
     /**
      * Method getId() return Id.
@@ -96,14 +82,7 @@ public class Person implements IDivision, IPerson {
         return Name;
     }
 
-    /**
-     * Method setDate set field date.
-     *
-     * @param date
-     */
-    public final void setDate(DateTime date) {
-        this.date = date;
-    }
+
 
     /**
      * Method setId set field Id.
@@ -128,9 +107,7 @@ public class Person implements IDivision, IPerson {
      *
      * @param sex
      */
-    public final void setSex(final String sex) {
-        this.sex = sex;
-    }
+
 
     public String getFirstName() {
         return FirstName;

@@ -16,6 +16,7 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 /**
@@ -126,6 +127,13 @@ public class Repository {
         else throw new Exception("This index contains element");
     }
 
+    public Person  set(int index, Person person)
+    {
+         mass[index]=person;
+         return person;
+
+    }
+
     public Person get(int index)
     {
         return mass[index];
@@ -153,7 +161,7 @@ public class Repository {
             else
             {
             System.out.println("Id:" + el.getId() + "\n" + "Name:"
-                    + el.getName() + "\n" + "Date:" + el.getDate() + "\n" + "Sex:" + el.getSex() + "\n");
+                    + el.getName() + "\n" + "Date:" + el.getBirthdate() + "\n" + "Sex:" + el.getGender() + "\n");
             }
         }
     }
@@ -169,8 +177,8 @@ public class Repository {
         // System.out.println("Get element for index:" + index);
         return "Id:" + mass[index].getId() + "\n"
                 + "Name:" + mass[index].getName() + "\n"
-                + "Date:" + mass[index].getDate() + "\n" + "Sex:"
-                + mass[index].getSex() + "\n";
+                + "Date:" + mass[index].getBirthdate() + "\n" + "Sex:"
+                + mass[index].getGender() + "\n";
 
     }
 
@@ -212,230 +220,9 @@ public class Repository {
         return mass;
     }
 
-    public Person[] searchByParam(String value, int numberParam) throws Exception {
-        int firstIndexNull=0;
-
-        Person[] search=new Person[mass.length] ;
-
-
-        int countNotNullElement=0;
-        switch (numberParam) {
-            case 1: {
-                for (int i = 0; i < mass.length; i++) {
-                    int buf = Integer.parseInt(value);
-                    if (mass[i].getId()==buf) {
-                        search[i] = mass[i];
-
-                    } /*else {
-                    throw new Exception("not found");
-                    //System.out.println( mass[i].getId());
-
-                    }*/
-
-                }
-
-            }
-            break;
-            case 2: {
-                for (int i = 0; i < mass.length; i++) {
-
-                    if (mass[i].getName() == value) {
-                        search[i] = mass[i];
-
-                    }
-
-                    /*else {
-                    throw new Exception("not found");
-                    //System.out.println( mass[i].getId());
-
-                    }*/
-
-                }
-                //  if(search.length==0)  throw new Exception("not found");
-            }
-
-            break;
-
-            case 3: {
-
-                /* String buf=value;
-                int indexWhiteSpace=value.indexOf(" ");
-                String valueDate=value.substring(0, indexWhiteSpace);
-                String str[] = valueDate.split("/");
 
 
 
-                String valueTime=value.substring(indexWhiteSpace+1,value.length());
-                String str2[] = valueTime.split("/");
-
-                System.out.println(valueDate+"\n"+valueTime);
-
-                int day = Integer.parseInt(str[0]);
-                int month = Integer.parseInt(str[1]);
-                int year=Integer.parseInt(str[2]);
-                int hour=Integer.parseInt(str2[0]);
-                int minutes=Integer.parseInt(str2[1]);
-                int seconds=Integer.parseInt(str2[2]);*/
-                DateTime date = DateTime.parse(value,
-                        DateTimeFormat.forPattern("dd/MM/yyyy HH:mm:ss"));
-
-                /* Period p1 = new Period(date);
-                long year = p1.getYears();
-                long month=p1.getMonths();
-                long day=p1.getDays();
-                long hour=p1.getHours();
-                long minutes=p1.getMinutes();
-                long seconds=p1.getSeconds();*/
-                for (int i = 0; i < mass.length; i++) {
-
-                    Period p2 = new Period(mass[i].getDate(),date);
-                    int year2 = p2.getYears();
-                    int month2=p2.getMonths();
-                    int day2=p2.getDays();
-                    int hour2=p2.getHours();
-                    int minutes2=p2.getMinutes();
-                    int seconds2=p2.getSeconds();
-                    //if (year==year2 && month==month2 && day==day2 && hour==hour2 && minutes==minutes2 && seconds==seconds2)
-                    if (mass[i].getDate().toLocalDate().isEqual(date.toLocalDate())) {
-                        search[i] = mass[i];
-
-                    } /*else {
-                    throw new Exception("not found");
-                    //System.out.println( mass[i].getId());
-
-                    }*/
-
-                }
-            }
-            break;
-
-            case 4: {
-                for (int i = 0; i < mass.length; i++) {
-
-
-
-                    if (mass[i].getSex() == value ) {
-                        search[i] = mass[i];
-
-                    } /*else {
-                    throw new Exception("not found");
-                    //System.out.println( mass[i].getId());
-
-                    }*/
-                    // else ;
-
-                }
-
-            }
-
-            break;
-
-        }
-        for(int i=0;i<search.length;i++)
-        {
-            if(search[i]!=null)
-            {
-                countNotNullElement++;
-                // break;
-            }
-        }
-
-        Person[] temp=new Person[countNotNullElement];
-
-        for(int i=0;i<search.length;i++)
-        {
-            for(int j=0;j<temp.length;j++)
-                if(search[i]==null);
-                else temp[j]=search[i];
-        }
-
-        // System.arraycopy(search, 0, temp, 0, firstIndexNull);
-        search=temp;
-        return search;
-    }
-
-    /** Method bubbleSort take one parametr
-     * @param  numberParam - number which take:
-     * 1(sort by field "ID")
-     * 3(sort by field "Date")
- *
- */
-    public Person[] bubbleSort(int numberParam) {
-        switch (numberParam) {
-            case 1: {
-                for (int i = 0; i < mass.length; i++) {
-                    for (int j = mass.length-1 ; j > i; j--) {
-                        if (mass[j - 1].getId() > mass[j].getId()) {
-                            Person buf = mass[j - 1];
-                            mass[j - 1] = mass[j];
-                            mass[j] = buf;
-                        }
-
-                    }
-                }
-
-            }
-            break;
-
-            case 3: {
-                for (int i = 0; i < mass.length ; i++) {
-                    for (int j = mass.length-1 ; j > i; j--) {
-                        if (mass[j - 1].getDate().isAfter(mass[j].getDate())) {
-                            Person buf = mass[j - 1];
-                            mass[j - 1] = mass[j];
-                            mass[j] = buf;
-                        }
-
-                    }
-                }
-            }
-            break;
-        }
-        return mass;
-    }
-
-    /** Method bubbleSort take one parametr
-     * @param  insertionSort - number which take:
-     * 1(sort by field "ID")
-     * 3(sort by field "Date")
- *
- */
-    public Person[] insertionSort(int numberParam) {
-        switch (numberParam) {
-            case 1: {
-                Person temp;
-                int item;
-                for (int counter = 1; counter < mass.length; counter++) {
-                    temp = mass[counter];
-                    item = counter - 1;
-                    while (item >= 0 && mass[item].getId() > temp.getId()) {
-                        mass[item + 1] = mass[item];
-                        mass[item] = temp;
-                        item--;
-                    }
-                }
-
-            }
-            break;
-
-            case 3: {
-
-                Person temp;
-                int item;
-                for (int counter = 1; counter < mass.length; counter++) {
-                    temp = mass[counter];
-                    item = counter - 1;
-                    while (item >= 0 && mass[item].getDate().isAfter(temp.getDate())) {
-                        mass[item + 1] = mass[item];
-                        mass[item] = temp;
-                        item--;
-                    }
-                }
-            }
-            break;
-        }
-        return mass;
-    }
 
     public Person[] readFromFileInRepository(String fileName) throws FileNotFoundException, IOException, Exception
     {
@@ -517,5 +304,61 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
      //  show();
         return mass;
     }
+
+     public static Comparator<Person> id = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            return (int) (p1.getId()-p2.getId());
+        }
+    };
+
+     public static Comparator<Person> firstName = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            return p1.getFirstName().compareTo(p2.getFirstName());
+        }
+    };
+
+      public static Comparator<Person> lastName = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            return p1.getLastName().compareTo(p2.getLastName());
+        }
+    };
+
+        public static Comparator<Person> name = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            return p1.getName().compareTo(p2.getName());
+        }
+    };
+
+         public static Comparator<Person> birthdate = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            return p1.getBirthdate().compareTo(p2.getBirthdate());
+        }
+    };
+
+             public static Comparator<Person> gender = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            return p1.getGender().compareTo(p2.getGender());
+        }
+    };
+                   public static Comparator<Person> salary = new Comparator<Person>() {
+
+        @Override
+        public int compare(Person p1, Person p2) {
+            return p1.getSalary().compareTo(p2.getSalary());
+        }
+    };
+
 
 }
