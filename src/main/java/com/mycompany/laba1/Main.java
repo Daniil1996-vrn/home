@@ -86,7 +86,7 @@ public class Main {
         c.sortBy(Repository.birthdate);
         Person[] mass = c.getMass();
 
-        System.out.println("Sort by IDivision birthdate:");
+        System.out.println("Sort by birthdate:");
         for (int i = 0; i < mass.length; i++) {
             if (mass[i] != null) {
                 System.out.println("Id:" + mass[i].getId() + "\n"
@@ -98,6 +98,10 @@ public class Main {
                         + "Salary:" + mass[i].getSalary() + "\n\n");
             }
         }
+
+        System.out.println();
+        /*System.out.println("Predicate");
+        c.searchBy(c.genderField);*/
 
         System.out.println("Add element for index 8");
         c.add(8, p8);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.laba1;
 
 import java.time.format.DateTimeFormatter;
@@ -21,6 +16,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Predicate;
+import java.util.Optional;
 /**
  * Class Repository is intended for store objects class Person. Field Size
  * -describe size massiv which store objects class Person Method getSize -
@@ -35,7 +31,7 @@ import java.util.function.Predicate;
  *
  * @author Data
  */
-public class Repository {
+public class Repository implements IRepository {
 
     /**
      * Field size store size massiv.
@@ -78,7 +74,7 @@ public class Repository {
     }
 
 
-    public void add(Person obj) throws Exception {
+    public void add(Person obj)  {
 
         /* if (count == size)
         {
@@ -88,8 +84,6 @@ public class Repository {
             tempArr[i] = mass[i];
         }
         mass = tempArr;
-
-
         }*/
         int firstLength=mass.length;
         for (int i = 0; i < mass.length; i++) {
@@ -123,10 +117,12 @@ public class Repository {
 
     }
 
-    public void  add(int index, Person person) throws Exception
+    public void  add(int index, Person person)
     {
         if(mass[index]==null) mass[index]=person;
-        else throw new Exception("This index contains element");
+        else
+        //throw new Exception("This index contains element");
+        Optional.of("This index contains element");
     }
 
     public Person  set(int index, Person person)
@@ -168,29 +164,15 @@ public class Repository {
         }
     }
 
-    /**
-     * Method getelement(Person [] mass2,int index) receive argument as massiv
-     * objects of class Person and index element massiv and show element massiv.
-     *
-     * @param index
-     */
-    public final String getelement(final int index) {
 
-        // System.out.println("Get element for index:" + index);
-        return "Id:" + mass[index].getId() + "\n"
-                + "Name:" + mass[index].getName() + "\n"
-                + "Date:" + mass[index].getBirthdate() + "\n" + "Sex:"
-                + mass[index].getGender() + "\n";
-
-    }
 
     /**
-     * Method delete_element(int index) receive index element massiv and delete
+     * Method delete(int index) receive index element massiv and delete
      * this element.
      *
      * @param index
      */
-    public final Person[] deleteElement(int index) {
+    public  Person[] delete(int index) {
 
         int size2 = mass.length - 1;
         Person[] mass2 = new Person[size2];
@@ -292,7 +274,6 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
                      +"Birthdate:"+date+"\n"
                     +"Division:"+Name+"\n"
                     +"Salary:"+money+"\n\n"
-
             );*/
 
 
@@ -435,5 +416,8 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
       Predicate<Person> birthdayField=(Person p)->p.getBirthdate().isAfter(LocalDate.parse("1950-11-27"));
       Predicate<Person> salaryField=(Person p)->p.getSalary().equals(20000);
 
-
+public IRepository searchBy(Predicate<Person> condition)
+{
+    return (IRepository) condition;
+}
 }
