@@ -62,9 +62,9 @@ public class Main {
         Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
         Person p4 = new Person(7, "Valeriy", "Petrov", localDate2, Gender.MALE, "C", bd);
         Person p5 = new Person(8, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
-        Person p6 = new Person(9, "Petrova", "Vera", localDate1, Gender.FEMALE, "B", bd2);
-        Person p7 = new Person(10, "Ivanov", "Ivan", localDate3, Gender.MALE, "A", bd);
-        Person p8 = new Person(0, "Smirnov", "Vladimir", localDate1, Gender.MALE, "A", bd3);
+        Person p6 = new Person(9, "Vera", "Petrova", localDate1, Gender.FEMALE, "B", bd2);
+        Person p7 = new Person(10, "Ivan", "Ivanov", localDate3, Gender.MALE, "A", bd);
+        Person p8 = new Person(0, "Vladimir", "Smirnov", localDate1, Gender.MALE, "A", bd3);
 
         Repository c = new Repository(size);
 

@@ -20,6 +20,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Predicate;
 /**
  * Class Repository is intended for store objects class Person. Field Size
  * -describe size massiv which store objects class Person Method getSize -
@@ -423,6 +424,16 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
                    public void sortBy(Comparator<Person> comparator )
                    {
                        Arrays.sort(mass,comparator);
+
                    }
+
+      Predicate<Person> idField=(Person p)->p.getId()>0;
+      Predicate<Person> firstNameField=(Person p)->p.getFirstName().startsWith("Pe");
+      Predicate<Person> lastNameField=(Person p)->p.getFirstName().endsWith("ov");
+      Predicate<Person> nameField=(Person p)->p.getName().equalsIgnoreCase("A");
+      Predicate<Person> genderField=(Person p)->p.getGender()==Gender.MALE;
+      Predicate<Person> birthdayField=(Person p)->p.getBirthdate().isAfter(LocalDate.parse("1950-11-27"));
+      Predicate<Person> salaryField=(Person p)->p.getSalary().equals(20000);
+
 
 }
