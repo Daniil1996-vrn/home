@@ -16,6 +16,7 @@ import java.io.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
@@ -309,6 +310,14 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
 
         @Override
         public int compare(Person p1, Person p2) {
+
+              if (p1 == null && p2 == null)
+            return 0;
+        if (p1 == null)
+            return 1;
+        if (p2 == null)
+            return -1;
+
             return (int) (p1.getId()-p2.getId());
         }
     };
@@ -317,6 +326,14 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
 
         @Override
         public int compare(Person p1, Person p2) {
+
+              if (p1 == null && p2 == null)
+            return 0;
+        if (p1 == null)
+            return 1;
+        if (p2 == null)
+            return -1;
+
             return p1.getFirstName().compareTo(p2.getFirstName());
         }
     };
@@ -325,14 +342,31 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
 
         @Override
         public int compare(Person p1, Person p2) {
+
+              if (p1 == null && p2 == null)
+            return 0;
+        if (p1 == null)
+            return 1;
+        if (p2 == null)
+            return -1;
             return p1.getLastName().compareTo(p2.getLastName());
         }
     };
 
         public static Comparator<Person> name = new Comparator<Person>() {
 
+
+
         @Override
         public int compare(Person p1, Person p2) {
+
+              if (p1 == null && p2 == null)
+            return 0;
+        if (p1 == null)
+            return 1;
+        if (p2 == null)
+            return -1;
+
             return p1.getName().compareTo(p2.getName());
         }
     };
@@ -341,6 +375,14 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
 
         @Override
         public int compare(Person p1, Person p2) {
+
+              if (p1 == null && p2 == null)
+            return 0;
+        if (p1 == null)
+            return 1;
+        if (p2 == null)
+            return -1;
+
             return p1.getBirthdate().compareTo(p2.getBirthdate());
         }
     };
@@ -348,7 +390,16 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
              public static Comparator<Person> gender = new Comparator<Person>() {
 
         @Override
+
         public int compare(Person p1, Person p2) {
+
+              if (p1 == null && p2 == null)
+            return 0;
+        if (p1 == null)
+            return 1;
+        if (p2 == null)
+            return -1;
+
             return p1.getGender().compareTo(p2.getGender());
         }
     };
@@ -356,9 +407,22 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
 
         @Override
         public int compare(Person p1, Person p2) {
+             if (p1 == null && p2 == null)
+            return 0;
+        if (p1 == null)
+            return 1;
+        if (p2 == null)
+            return -1;
+
+
+
             return p1.getSalary().compareTo(p2.getSalary());
         }
     };
 
+                   public void sortBy(Comparator<Person> comparator )
+                   {
+                       Arrays.sort(mass,comparator);
+                   }
 
 }

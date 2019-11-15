@@ -8,6 +8,7 @@ package com.mycompany.laba1;
 import java.math.BigDecimal;
 import org.joda.time.DateTime;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 import org.joda.time.Period;
 
@@ -187,11 +188,11 @@ public class Person implements IDivision, IPerson {
      * Method difference_date() calculate and print age Person.
      */
     public Integer getAge() {
-        DateTime now = DateTime.now();
+        LocalDate now = LocalDate.now();
 
-        Period p = new Period(date, now);
+       //Period p = new Period(date, now);
 
-        int years = p.getYears();
+        int years = (int) ChronoUnit.YEARS.between(Birthdate, now);
 
         return years;
     }
