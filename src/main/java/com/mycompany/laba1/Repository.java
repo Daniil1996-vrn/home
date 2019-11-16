@@ -159,26 +159,7 @@ public class Repository implements IRepository {
         return arr;
     }
 
-    /**
-     * Method show() show elements array mass of type Person
-     *
-     */
-    public final void show() {
-        System.out.println("Show elements massiv:");
-        System.out.println(mass.length);
-        for (int i = 0; i < mass.length; i++) {
-            Person el = mass[i];
-            if(mass[i]==null) ;
-            else
-            {
-            System.out.println("Id:" + el.getId() + "\n" + "Name:"
-                    + el.getName() + "\n" + "Date:" + el.getBirthdate() + "\n" + "Sex:" + el.getGender() + "\n");
-            }
-        }
-    }
-
-
-
+    
     /**
      * Method delete(int index) receive index element massiv and delete
      * this element.

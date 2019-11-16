@@ -5,6 +5,9 @@
  */
 package com.mycompany.laba1;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.Month;
 import org.joda.time.DateTime;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -44,16 +47,18 @@ public class PersonTest {
      * Test of differenceDate method, of class Person.
      */
     @Test
-    public void testDifferenceDate() {
+    public void testGetAge() {
+        BigDecimal bd = new BigDecimal(20000);
         System.out.println("differenceDate");
-        DateTime date = new DateTime(1965, 7, 22, 0, 0, 0, 0);
-        Person instance = new Person(1, "Petrov V.V", date, "man");;
-        long expResult = 54L;
-        long result = instance.differenceDate();
+        LocalDate localDate1 = LocalDate.of(1960, Month.MAY, 14);
+        Person instance = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        int expResult = 59;
+        int result = instance.getAge();
 
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
+
 
 }
