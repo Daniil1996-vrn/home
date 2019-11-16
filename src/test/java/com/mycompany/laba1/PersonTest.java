@@ -51,7 +51,7 @@ public class PersonTest {
         BigDecimal bd = new BigDecimal(20000);
         System.out.println("differenceDate");
         LocalDate localDate1 = LocalDate.of(1960, Month.MAY, 14);
-        Person instance = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person instance = new Person(1, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
         int expResult = 59;
         int result = instance.getAge();
 
