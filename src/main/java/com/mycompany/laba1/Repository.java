@@ -159,7 +159,7 @@ public class Repository implements IRepository {
         return arr;
     }
 
-    
+
     /**
      * Method delete(int index) receive index element massiv and delete
      * this element.
@@ -248,7 +248,7 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
                BigDecimal money = new BigDecimal(bufArray[6]);
 
 
-             Person bufObject=new Person( id,   firstName, lastName, date, gender, Name, money);
+             Person bufObject=new Person( id,   firstName, lastName,gender, date,  Name, money);
              if(bufObject!=null)
                 add(bufObject);
 

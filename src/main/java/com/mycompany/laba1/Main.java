@@ -54,17 +54,17 @@ public class Main {
         BigDecimal bd2 = new BigDecimal(25000);
         BigDecimal bd3 = new BigDecimal(35000);
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate1,  "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
-        Person p4 = new Person(7, "Valeriy", "Petrov", localDate2, Gender.MALE, "C", bd);
-        Person p5 = new Person(8, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
-        Person p6 = new Person(9, "Vera", "Petrova", localDate1, Gender.FEMALE, "B", bd2);
-        Person p7 = new Person(10, "Ivan", "Ivanov", localDate3, Gender.MALE, "A", bd);
-        Person p8 = new Person(0, "Vladimir", "Smirnov", localDate1, Gender.MALE, "A", bd3);
+        Person p3 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
+        Person p4 = new Person(7, "Valeriy", "Petrov",  Gender.MALE,localDate2, "C", bd);
+        Person p5 = new Person(8, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
+        Person p6 = new Person(9, "Vera", "Petrova",Gender.FEMALE, localDate1,  "B", bd2);
+        Person p7 = new Person(10, "Ivan", "Ivanov", Gender.MALE,localDate3,  "A", bd);
+        Person p8 = new Person(0, "Vladimir", "Smirnov",Gender.MALE, localDate1,  "A", bd3);
 
         Repository c = new Repository(size);
 

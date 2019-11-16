@@ -62,12 +62,12 @@ public class RepositoryTest {
         BigDecimal bd2 = new BigDecimal(25000);
         BigDecimal bd3 = new BigDecimal(35000);
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov", Gender.MALE,localDate1,  "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p3 = new Person(6, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
 
         Repository instance = new Repository(3);
 
@@ -100,14 +100,14 @@ public class RepositoryTest {
         BigDecimal bd3 = new BigDecimal(35000);
 
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate1,  "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p3 = new Person(6, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
 
-        Person p4 = new Person(7, "Valeriy", "Petrov", localDate2, Gender.MALE, "C", bd);
+        Person p4 = new Person(7, "Valeriy", "Petrov",Gender.MALE, localDate2,  "C", bd);
 
         Person[] mass2={p1,p2,p3,p4};
 
@@ -136,16 +136,16 @@ public class RepositoryTest {
         BigDecimal bd3 = new BigDecimal(35000);
 
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov", Gender.MALE,localDate1,  "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p3 = new Person(6, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
 
-        Person p4 = new Person(7, "Valeriy", "Petrov", localDate2, Gender.MALE, "C", bd);
+        Person p4 = new Person(7, "Valeriy", "Petrov", Gender.MALE,localDate2,  "C", bd);
 
-        Person p5 = new Person(8, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p5 = new Person(8, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
 
         Person[] mass2={p1,p2,p3,p5};
 
@@ -176,12 +176,12 @@ public class RepositoryTest {
         BigDecimal bd3 = new BigDecimal(35000);
 
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov", Gender.MALE, localDate1, "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate1,  "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p3 = new Person(6, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
 
 
 
@@ -218,12 +218,12 @@ public class RepositoryTest {
         BigDecimal bd3 = new BigDecimal(35000);
 
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
-        System.out.println("Age:" + p1.getAge());
+        Person p1 = new Person(1, "Valeriy", "Petrov", Gender.MALE, localDate1, "A", bd);
+       // System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov",  Gender.MALE,localDate1, "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p3 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
 
           Repository instance = new Repository(3);
 
@@ -263,12 +263,12 @@ public class RepositoryTest {
         BigDecimal bd3 = new BigDecimal(35000);
 
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate1,  "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p3 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
 
 
 
@@ -301,12 +301,12 @@ public class RepositoryTest {
         BigDecimal bd3 = new BigDecimal(35000);
 
 
-        Person p1 = new Person(1, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov", localDate1, Gender.MALE, "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov", Gender.MALE,localDate1,  "D", bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov", localDate1, Gender.MALE, "A", bd);
+        Person p3 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
 
         Person[] mass2={p1,p2,p3};
 
@@ -328,13 +328,30 @@ public class RepositoryTest {
     @Test
     public void testReadFromFileInRepository() throws Exception {
         System.out.println("readFromFileInRepository");
-        String fileName = "";
-        Repository instance = null;
-        Person[] expResult = null;
+        String fileName = "C:\\Soft\\test.txt";
+
+         LocalDate localDate1 = LocalDate.of(1960, Month.MAY, 14);
+        LocalDate localDate2 = LocalDate.of(1965, Month.MAY, 14);
+        LocalDate localDate3 = LocalDate.of(1970, Month.MAY, 14);
+
+        BigDecimal bd = new BigDecimal(20000);
+        BigDecimal bd2 = new BigDecimal(25000);
+        BigDecimal bd3 = new BigDecimal(35000);
+
+
+        Person p1 = new Person(1, "Valeriy", "Petrov", Gender.MALE, localDate1, "A", bd);
+       // System.out.println("Age:" + p1.getAge());
+
+        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate2,  "D", bd2);
+
+        Person p3 = new Person(6, "Valeriy", "Petrov",  Gender.MALE,localDate3, "B", bd3);
+        //Repository instance = null;
+        Person[] expResult = {p1,p2,p3};
+        Repository instance=new Repository(3);
         Person[] result = instance.readFromFileInRepository(fileName);
         assertArrayEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -342,12 +359,108 @@ public class RepositoryTest {
      */
     @Test
     public void testSortBy() {
-        System.out.println("sortBy");
-        Comparator<Person> comparator = null;
-        Repository instance = null;
+
+        //sortBy Id
+
+        LocalDate localDate1 = LocalDate.of(1960, Month.MAY, 14);
+        LocalDate localDate2 = LocalDate.of(1965, Month.MAY, 14);
+        LocalDate localDate3 = LocalDate.of(1970, Month.MAY, 14);
+
+        BigDecimal bd = new BigDecimal(20000);
+        BigDecimal bd2 = new BigDecimal(25000);
+        BigDecimal bd3 = new BigDecimal(35000);
+
+
+        Person p1 = new Person(1, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
+       // System.out.println("Age:" + p1.getAge());
+
+        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate2,  "D", bd2);
+
+        Person p3 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate3,  "B", bd3);
+        //Repository instance = null;
+        Person[] expResult = {p1,p2,p3};
+        Repository instance=new Repository(3);
+
+
+        instance.add(p3);
+        instance.add(p1);
+        instance.add(p2);
+
+
+        Comparator<Person> comparator = Repository.id;
+
         instance.sortBy(comparator);
+        Person[] result=instance.getMass();
+        assertArrayEquals(expResult, result);
+
+        //sort by salary
+
+        LocalDate localDate11 = LocalDate.of(1960, Month.MAY, 14);
+        LocalDate localDate22 = LocalDate.of(1965, Month.MAY, 14);
+        LocalDate localDate33 = LocalDate.of(1970, Month.MAY, 14);
+
+        BigDecimal bd11 = new BigDecimal(20000);
+        BigDecimal bd22 = new BigDecimal(25000);
+        BigDecimal bd33 = new BigDecimal(35000);
+
+
+        Person p11 = new Person(1, "Valeriy", "Petrov",Gender.MALE, localDate11,  "A", bd11);
+       // System.out.println("Age:" + p1.getAge());
+
+        Person p22 = new Person(5, "Valeriy", "Petrov", Gender.MALE,localDate22,  "D", bd22);
+
+        Person p33 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate33,  "B", bd33);
+        //Repository instance = null;
+        Person[] expResult2 = {p11,p22,p33};
+        Repository instance2=new Repository(3);
+
+
+        instance2.add(p33);
+        instance2.add(p11);
+        instance2.add(p22);
+
+
+        Comparator<Person> comparator2 = Repository.salary;
+
+        instance2.sortBy(comparator2);
+        Person[] result2=instance2.getMass();
+        assertArrayEquals(expResult2, result2);
+
+        //sort by birthdate
+
+        LocalDate localDate111 = LocalDate.of(1960, Month.MAY, 14);
+        LocalDate localDate222 = LocalDate.of(1965, Month.MAY, 14);
+        LocalDate localDate333 = LocalDate.of(1970, Month.MAY, 14);
+
+        BigDecimal bd111 = new BigDecimal(20000);
+        BigDecimal bd222 = new BigDecimal(25000);
+        BigDecimal bd333 = new BigDecimal(35000);
+
+
+        Person p111 = new Person(1, "Valeriy", "Petrov", Gender.MALE, localDate111, "A", bd111);
+       // System.out.println("Age:" + p1.getAge());
+
+        Person p222 = new Person(5, "Valeriy", "Petrov", Gender.MALE, localDate222, "D", bd222);
+
+        Person p333 = new Person(6, "Valeriy", "Petrov", Gender.MALE,localDate333,  "B", bd333);
+        //Repository instance = null;
+        Person[] expResult3 = {p111,p222,p333};
+        Repository instance3=new Repository(3);
+
+
+        instance3.add(p333);
+        instance3.add(p111);
+        instance3.add(p222);
+
+
+        Comparator<Person> comparator3 = Repository.salary;
+
+        instance3.sortBy(comparator3);
+        Person[] result3=instance3.getMass();
+        assertArrayEquals(expResult3, result3);
+
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**

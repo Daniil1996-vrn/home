@@ -234,15 +234,16 @@ public class Person implements IDivision, IPerson {
      * @param Salary
      *
      */
-    public Person(int id, String FirstName, String LastName, LocalDate Birthdate, Gender Gender, String Name, BigDecimal Salary) {
+    public Person(int id, String FirstName, String LastName, Gender Gender,LocalDate Birthdate,  String Name, BigDecimal Salary) {
 
         this.id = id;
 
         this.FirstName = FirstName;
         this.LastName = LastName;
+         this.Gender = Gender;
         this.Birthdate = Birthdate;
 
-        this.Gender = Gender;
+
         this.Name = Name;
         this.Salary = Salary;
 
