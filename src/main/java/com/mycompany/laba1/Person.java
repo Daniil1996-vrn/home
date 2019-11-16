@@ -50,12 +50,17 @@ public class Person implements IDivision, IPerson {
 
 
     /**
-     * Filed sex - sex Person.
+     * Filed Gender - sex Person.
      *
      */
 
 
     private Gender Gender;
+
+    /**
+     * Filed Salary - Salary for Person.
+     *
+     */
 
     private BigDecimal Salary;
 
@@ -103,16 +108,22 @@ public class Person implements IDivision, IPerson {
         this.Name = Name;
     }
 
-    /**
-     * Method setSex set field sex.
-     *
-     * @param sex
-     */
 
+ /**
+     * Method getFirstName return filedt FirstName.
+     *
+
+     */
 
     public String getFirstName() {
         return FirstName;
     }
+
+    /**
+     * Method getFirstName set filed FirstName.
+     *
+     * @param FirstName
+     */
 
     public String setFirstName(String FirstName) {
         this.FirstName = FirstName;
@@ -120,44 +131,94 @@ public class Person implements IDivision, IPerson {
 
     }
 
+    /**
+     * Method getlastName return filed LastName.
+     *
+
+     */
     public String getLastName() {
         return LastName;
     }
 
+    /**
+     * Method setLastName set filed LastName.
+     *
+     * @param FirstName
+     */
     public String setLastName(String LastName) {
         this.LastName = LastName;
         return this.LastName;
     }
+/**
+     * Method getBirthdate return filed Birthdate.
+     *
 
+     */
     public LocalDate getBirthdate() {
         return Birthdate;
     }
 
+     /**
+     * Method setBirthdate set filed Birthdate.
+     *
+     * @param Birthdate
+
+     */
     public LocalDate setBirthdate(LocalDate Birthdate) {
         this.Birthdate = Birthdate;
         return this.Birthdate;
     }
 
+    /**
+     * Method getSalary return filed Salary.
+     *
+
+     */
     public BigDecimal getSalary() {
         return Salary;
     }
 
+    /**
+     * Method setSalary set filed Salary.
+     *
+     * @param Salary
+     */
     public void setSalary(BigDecimal Salary) {
         this.Salary = Salary;
     }
 
+     /**
+     * Method getGender return  gender Person.
+     *
+
+     */
     public Gender getGender() {
         return Gender;
     }
 
+     /**
+     * Method setGender set gender Person.
+     *
+     * @param Gender
+     */
     public void setGender(Gender Gender) {
         this.Gender = Gender;
     }
 
+    /**
+     * Method getDivision return gender Person.
+     *
+     */
     public IDivision getDivision() {
         return IDivision;
     }
 
+
+    /**
+     * Method getDivision return field setDivision.
+     *
+     * @param division
+     */
     public void setDivision(IDivision division) {
         this.IDivision = IDivision;
     }
@@ -166,9 +227,12 @@ public class Person implements IDivision, IPerson {
      * This is constructor.
      *
      * @param id
+     * @param FirstName
      * @param Name
-     * @param date
-     * @param sex
+     * @param Birthdate
+     * @param Gender
+     * @param Salary
+     *
      */
     public Person(int id, String FirstName, String LastName, LocalDate Birthdate, Gender Gender, String Name, BigDecimal Salary) {
 
@@ -185,7 +249,7 @@ public class Person implements IDivision, IPerson {
     }
 
     /**
-     * Method difference_date() calculate and print age Person.
+     * Method getAge calculate and print age Person.
      */
     public Integer getAge() {
         LocalDate now = LocalDate.now();

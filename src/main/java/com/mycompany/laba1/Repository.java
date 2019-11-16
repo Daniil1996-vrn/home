@@ -18,15 +18,7 @@ import java.util.Scanner;
 import java.util.function.Predicate;
 import java.util.Optional;
 /**
- * Class Repository is intended for store objects class Person. Field Size
- * -describe size massiv which store objects class Person Method getSize -
- * return field size Method setSize - set field size Method add - add object
- * type Person in array mass of type Person for store objects class Person
- * Method show(Person [] mass2) receive argument as massiv objects of class
- * Person and show it elements Method getelement(Person [] mass2,int index)
- * receive argument as massiv objects of class Person and index element massiv
- * and show element massiv Method delete_element(int index) receive index
- * element massiv and delete this element
+ * Class Repository is intended for store objects class Person.
  *
  *
  * @author Data
@@ -73,7 +65,10 @@ public class Repository implements IRepository {
         return size;
     }
 
-
+ /**
+     * Method add -add Object into array mass.
+     *
+     */
     public void add(Person obj)  {
 
         /* if (count == size)
@@ -117,6 +112,11 @@ public class Repository implements IRepository {
 
     }
 
+    /**
+     * Method add -add Object into array mass, if element mass[index] is null.
+     *
+     */
+
     public void  add(int index, Person person)
     {
         if(mass[index]==null) mass[index]=person;
@@ -124,18 +124,31 @@ public class Repository implements IRepository {
         //throw new Exception("This index contains element");
         Optional.of("This index contains element");
     }
-
+ /**
+     * Method set -replace element array "mas" with "index" for object "person".
+     *
+     * @param index
+     * @param person
+     */
     public Person  set(int index, Person person)
     {
          mass[index]=person;
          return person;
 
     }
-
+/**
+     * Method get -return element array "mass" for given "index".
+     *
+     */
     public Person get(int index)
     {
         return mass[index];
     }
+
+    /**
+     * Method toList -convert array "mass" to Collection "List".
+     *
+     */
 
     public List<Person> toList() {
         ArrayList<Person> arr = new ArrayList<>();
@@ -187,26 +200,18 @@ public class Repository implements IRepository {
 
     }
 
-     /** Method searchByParam take two parametr:
-      * @param  value - string for search.
-     * @param  numberParam - number which take:
-     * 1- field "ID";
-     * 2 -field "Name"
-     * 3- field "Date;
-     * 4-field "sex".
- *
- */
+    /**
+     * Method getMass - return array "mass"
 
-
-
+     */
 
     public Person[] getMass() {
         return mass;
     }
-
-
-
-
+/**
+     * Method readFromFileInRepository - read file and add to array "mass" with method add(Person obj)
+     * @param fileName
+     */
 
     public Person[] readFromFileInRepository(String fileName) throws FileNotFoundException, IOException, Exception
     {
@@ -288,6 +293,11 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
         return mass;
     }
 
+    /**
+     * Comparator for filed "id".
+
+     */
+
      public static Comparator<Person> id = new Comparator<Person>() {
 
         @Override
@@ -304,6 +314,10 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
         }
     };
 
+      /**
+     * Comparator for filed "firstName".
+
+     */
      public static Comparator<Person> firstName = new Comparator<Person>() {
 
         @Override
@@ -320,6 +334,11 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
         }
     };
 
+      /**
+     * Comparator for filed "lastName".
+
+     */
+
       public static Comparator<Person> lastName = new Comparator<Person>() {
 
         @Override
@@ -335,6 +354,10 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
         }
     };
 
+        /**
+     * Comparator for filed "name".
+
+     */
         public static Comparator<Person> name = new Comparator<Person>() {
 
 
@@ -352,7 +375,10 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
             return p1.getName().compareTo(p2.getName());
         }
     };
+/**
+     * Comparator for filed "birthdate".
 
+     */
          public static Comparator<Person> birthdate = new Comparator<Person>() {
 
         @Override
@@ -368,6 +394,10 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
             return p1.getBirthdate().compareTo(p2.getBirthdate());
         }
     };
+        /**
+     * Comparator for filed "gender".
+
+     */
 
              public static Comparator<Person> gender = new Comparator<Person>() {
 
@@ -385,6 +415,10 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
             return p1.getGender().compareTo(p2.getGender());
         }
     };
+             /**
+     * Comparator for filed "salary".
+
+     */
                    public static Comparator<Person> salary = new Comparator<Person>() {
 
         @Override
@@ -401,6 +435,9 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
             return p1.getSalary().compareTo(p2.getSalary());
         }
     };
+                    /**Method SortBy-sort array "mass" with given comparator
+
+     */
 
                    public void sortBy(Comparator<Person> comparator )
                    {
@@ -408,14 +445,47 @@ LocalDate date = LocalDate.parse(bufArray[4], formatter);
 
                    }
 
+
+                    /**Predicate for field "id"
+
+     */
+
       Predicate<Person> idField=(Person p)->p.getId()>0;
+
+        /**Predicate for field "firstName"
+
+     */
       Predicate<Person> firstNameField=(Person p)->p.getFirstName().startsWith("Pe");
+
+       /**Predicate for field "lastName"
+
+     */
+
       Predicate<Person> lastNameField=(Person p)->p.getFirstName().endsWith("ov");
+
+      /**Predicate for field "Name"
+
+     */
       Predicate<Person> nameField=(Person p)->p.getName().equalsIgnoreCase("A");
+
+      /**Predicate for field "gender"
+
+     */
       Predicate<Person> genderField=(Person p)->p.getGender()==Gender.MALE;
+
+      /**Predicate for field "birthdate"
+
+     */
       Predicate<Person> birthdayField=(Person p)->p.getBirthdate().isAfter(LocalDate.parse("1950-11-27"));
+
+      /**Predicate for field "salary"
+
+     */
       Predicate<Person> salaryField=(Person p)->p.getSalary().equals(20000);
 
+      /**Method searchBy search with gien predicate.
+
+     */
 public IRepository searchBy(Predicate<Person> condition)
 {
     return (IRepository) condition;

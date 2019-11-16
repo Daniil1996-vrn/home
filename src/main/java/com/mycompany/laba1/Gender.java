@@ -6,7 +6,7 @@
 package com.mycompany.laba1;
 
 /**
- *
+ *Enum which contains constants MALE and FEMALE
  * @author Data
  */
 public enum Gender {
