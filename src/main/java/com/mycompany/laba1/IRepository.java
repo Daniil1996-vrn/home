@@ -16,20 +16,20 @@ public interface IRepository {
 
     public void add(Person person);
 
-	public Person get(int index);
+	public IPerson get(int index);
 
-	public Person[] delete(int index);
+	public IPerson[] delete(int index);
 
-	public Person set(int index, Person person);
+	public IPerson set(int index, IPerson person);
 
-	public void add(int index, Person person);
+	public void add(int index, IPerson person);
 
-	public List<Person> toList();
-
-	//Should not use toList method
-	public void sortBy(Comparator<Person> comparator );
+	public List<IPerson> toList();
 
 	//Should not use toList method
-	public IRepository searchBy(Predicate<Person> condition);
+	public void sortBy(Comparator<IPerson> comparator );
+
+	//Should not use toList method
+	public IRepository searchBy(Predicate<IPerson> condition);
 
 }

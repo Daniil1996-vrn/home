@@ -45,6 +45,10 @@ public class Main {
         final int day = 22;
         final int unit_time = 0;
 
+        IDivision div = new Division("A");
+        IDivision div2 = new Division("B");
+        IDivision div3 = new Division("C");
+
         // System.out.println("Hello World");
         LocalDate localDate1 = LocalDate.of(1960, Month.MAY, 14);
         LocalDate localDate2 = LocalDate.of(1965, Month.MAY, 14);
@@ -54,17 +58,17 @@ public class Main {
         BigDecimal bd2 = new BigDecimal(25000);
         BigDecimal bd3 = new BigDecimal(35000);
 
-        Person p1 = new Person(1, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
+        Person p1 = new Person(1, "Valeriy", "Petrov",Gender.MALE, localDate1,  div, bd);
         System.out.println("Age:" + p1.getAge());
 
-        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate1,  "D", bd);
+        Person p2 = new Person(5, "Valeriy", "Petrov",Gender.MALE, localDate1,  div, bd);
 
-        Person p3 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate1,  "A", bd);
-        Person p4 = new Person(7, "Valeriy", "Petrov",  Gender.MALE,localDate2, "C", bd);
-        Person p5 = new Person(8, "Valeriy", "Petrov", Gender.MALE,localDate1,  "A", bd);
-        Person p6 = new Person(9, "Vera", "Petrova",Gender.FEMALE, localDate1,  "B", bd2);
-        Person p7 = new Person(10, "Ivan", "Ivanov", Gender.MALE,localDate3,  "A", bd);
-        Person p8 = new Person(0, "Vladimir", "Smirnov",Gender.MALE, localDate1,  "A", bd3);
+        Person p3 = new Person(6, "Valeriy", "Petrov",Gender.MALE, localDate1,  div2, bd);
+        Person p4 = new Person(7, "Valeriy", "Petrov",  Gender.MALE,localDate2, div, bd);
+        Person p5 = new Person(8, "Valeriy", "Petrov", Gender.MALE,localDate1,  div, bd);
+        Person p6 = new Person(9, "Vera", "Petrova",Gender.FEMALE, localDate1,  div3, bd2);
+        Person p7 = new Person(10, "Ivan", "Ivanov", Gender.MALE,localDate3,  div, bd);
+        Person p8 = new Person(0, "Vladimir", "Smirnov",Gender.MALE, localDate1,  div, bd3);
 
         Repository c = new Repository(size);
 
@@ -77,14 +81,27 @@ public class Main {
         c.add(p7);
         c.add(p8);
 
+      /*  IPerson[] mass=c.getMass();
+
+        for (int i = 0; i < mass.length; i++) {
+             System.out.println("Id:" + mass[i].getId() + "\n"
+                        + "First Name:" + mass[i].getFirstName() + "\n"
+                        + "Last Name:" + mass[i].getLastName() + "\n"
+                        + "Birthdate:" + mass[i].getBirthdate() + "\n"
+                        + "Gender:" + mass[i].getGender() + "\n"
+                        + "IDivision Name:" + mass[i].getDivision().getName() + "\n"
+                        + "Salary:" + mass[i].getSalary() + "\n\n");
+
+        }*/
+
         // Comparator c=new Comparator
         //  c.sortBy(Repository.salary);
         // c.sortBy(Repository.id);
         //c.sortBy(Repository.firstName);
         //c.sortBy(Repository.lastName);
         //c.sortBy(Repository.name);
-        c.sortBy(Repository.birthdate);
-        Person[] mass = c.getMass();
+       c.sortBy(Comparators.salary);
+        IPerson[] mass = c.getMass();
 
         System.out.println("Sort by birthdate:");
         for (int i = 0; i < mass.length; i++) {
@@ -94,7 +111,7 @@ public class Main {
                         + "Last Name:" + mass[i].getLastName() + "\n"
                         + "Birthdate:" + mass[i].getBirthdate() + "\n"
                         + "Gender:" + mass[i].getGender() + "\n"
-                        + "IDivision Name:" + mass[i].getName() + "\n"
+                        + "IDivision Name:" + mass[i].getDivision().getName() + "\n"
                         + "Salary:" + mass[i].getSalary() + "\n\n");
             }
         }
@@ -103,11 +120,11 @@ public class Main {
         /*System.out.println("Predicate");
         c.searchBy(c.genderField);*/
 
-        System.out.println("Add element for index 8");
-        c.add(8, p8);
-        System.out.println("Convert Array to List:");
+    /*    System.out.println("Add element for index 8");
+        c.add(8, p8);*/
+      /*  System.out.println("Convert Array to List:");
 
-        List<Person> l = c.toList();
+        List<IPerson> l = c.toList();
 
         Iterator iterator = l.iterator();
 
@@ -123,7 +140,7 @@ public class Main {
                     + "Salary:" + next.getSalary() + "\n\n");
 
         }
-        {
+        {*/
             /* System.out.println("Id:"+iterator.next().+"\n"
             +"First Name:"+p.getFirstName()+"\n"
             +"Last Name:"+p.getLastName()+"\n"
@@ -132,7 +149,7 @@ public class Main {
             +"IDivision Name:"+p.getName()+"\n"
             +"Salary:"+p.getSalary()+"\n\n");*/
             //System.out.println(iterator.next() + "\n");
-        }
+      //  }
 
 
         /*   System.out.println("Get element for index 5:\n" + c.getelement(5));
@@ -173,7 +190,7 @@ public class Main {
             System.out.println("Id:" + insertionsort[i].getId() + "\n" + "Name:" + insertionsort[i].getName() + "\n"
                     + "Date:" + insertionsort[i].getDate() + "\n" + "Sex:" + insertionsort[i].getSex() + "\n");
         }*/
-        Repository c2 = new Repository(500);
+      /*  Repository c2 = new Repository(500);
         Person[] readFromFile = c2.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\laba1\\src\\main\\resources\\persons.csv");
         System.out.println(readFromFile.length);
         for (int i = 0; i < readFromFile.length; i++) {
@@ -188,6 +205,7 @@ public class Main {
             );
 
         }
+        */
         //  c2.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\laba1\\src\\main\\resources\\persons.csv");
 
         /*c.getelement(c.create_and_initialize(), indexGet);

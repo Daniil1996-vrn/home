@@ -23,7 +23,7 @@ import org.joda.time.Period;
  *
  * @author Data
  */
-public class Person implements IDivision, IPerson {
+public class Person implements IPerson {
 
     /**
      * Filed "id" as identifikator.
@@ -35,7 +35,7 @@ public class Person implements IDivision, IPerson {
      * Filed "Name"-Name Father Surname.
      *
      */
-    private String Name;
+
 
     private String FirstName;
 
@@ -79,15 +79,6 @@ public class Person implements IDivision, IPerson {
         return id;
     }
 
-    /**
-     * Method getName() return Name.
-     *
-     * @return
-     */
-    public final String getName() {
-        return Name;
-    }
-
 
 
     /**
@@ -99,14 +90,7 @@ public class Person implements IDivision, IPerson {
         this.id = id;
     }
 
-    /**
-     * Method setName set field Name.
-     *
-     * @param Name
-     */
-    public void setName(String Name) {
-        this.Name = Name;
-    }
+
 
 
  /**
@@ -244,10 +228,24 @@ public class Person implements IDivision, IPerson {
         this.Birthdate = Birthdate;
 
 
-        this.Name = Name;
+        this.IDivision.setName(Name);
         this.Salary = Salary;
 
     }
+
+    public Person(int id, String FirstName, String LastName,Gender Gender, LocalDate Birthdate, IDivision IDivision, BigDecimal Salary ) {
+        this.id = id;
+
+        this.FirstName = FirstName;
+        this.LastName = LastName;
+        this.Gender = Gender;
+        this.Birthdate = Birthdate;
+        this.IDivision = IDivision;
+        this.Salary = Salary;
+
+    }
+
+
 
     /**
      * Method getAge calculate and print age Person.
