@@ -116,13 +116,15 @@ public class Main {
             }
         }
 
-        System.out.println();
-        /*System.out.println("Predicate");
-        c.searchBy(c.genderField);*/
+        Predicates pred= new Predicates();
 
-    /*    System.out.println("Add element for index 8");
-        c.add(8, p8);*/
-      /*  System.out.println("Convert Array to List:");
+       /* System.out.println();
+       System.out.println("Predicate");
+        c.searchBy(pred.firstNameField);*/
+
+      System.out.println("Add element for index 8");
+        c.add(8, p8);
+       System.out.println("Convert Array to List:");
 
         List<IPerson> l = c.toList();
 
@@ -136,11 +138,11 @@ public class Main {
                     + "Last Name:" + next.getLastName() + "\n"
                     + "Birthdate:" + next.getBirthdate() + "\n"
                     + "Gender:" + next.getGender() + "\n"
-                    + "IDivision Name:" + next.getName() + "\n"
+                    + "IDivision Name:" + next.getDivision().getName() + "\n"
                     + "Salary:" + next.getSalary() + "\n\n");
 
         }
-        {*/
+        {
             /* System.out.println("Id:"+iterator.next().+"\n"
             +"First Name:"+p.getFirstName()+"\n"
             +"Last Name:"+p.getLastName()+"\n"
@@ -149,7 +151,7 @@ public class Main {
             +"IDivision Name:"+p.getName()+"\n"
             +"Salary:"+p.getSalary()+"\n\n");*/
             //System.out.println(iterator.next() + "\n");
-      //  }
+        }
 
 
         /*   System.out.println("Get element for index 5:\n" + c.getelement(5));
@@ -210,5 +212,23 @@ public class Main {
 
         /*c.getelement(c.create_and_initialize(), indexGet);
        c.delete_element(indexDelete);*/
+
+         Repository c2 = new Repository(1000);
+
+     LoadRepository lp=new LoadRepository();
+     lp.readFromFileInRepository("C:\\Users\\Data\\Documents\\NetBeansProjects\\Laba1\\target\\classes\\persons.csv");
+     IPerson[] mass2=c2.getMass();
+
+        for (int i = 0; i < mass2.length; i++) {
+             System.out.println("Id:" + mass2[i].getId() + "\n"
+                        + "First Name:" + mass2[i].getFirstName() + "\n"
+                        + "Last Name:" + mass2[i].getLastName() + "\n"
+                        + "Birthdate:" + mass2[i].getBirthdate() + "\n"
+                        + "Gender:" + mass2[i].getGender() + "\n"
+                        + "IDivision Name:" + mass2[i].getDivision().getName() + "\n"
+                        + "Salary:" + mass2[i].getSalary() + "\n\n");
+
+        }
+
     }
 }

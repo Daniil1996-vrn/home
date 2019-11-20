@@ -14,11 +14,11 @@ import java.util.function.Predicate;
  */
 public interface IRepository {
 
-    public void add(Person person);
+   public void add(IPerson person);
 
 	public IPerson get(int index);
 
-	public IPerson[] delete(int index);
+	public IPerson delete(int index);
 
 	public IPerson set(int index, IPerson person);
 
@@ -31,5 +31,4 @@ public interface IRepository {
 
 	//Should not use toList method
 	public IRepository searchBy(Predicate<IPerson> condition);
-
 }

@@ -23,7 +23,7 @@ import java.util.Optional;
  *
  * @author Data
  */
-public class Repository  {
+public class Repository implements IRepository {
 
     /**
      * Field size store size massiv.
@@ -175,7 +175,7 @@ public class Repository  {
      *
      * @param index
      */
-    public  IPerson[] delete(int index) {
+    public  IPerson delete(int index) {
 
         int size2 = mass.length - 1;
         IPerson[] mass2 = new IPerson[size2];
@@ -186,7 +186,7 @@ public class Repository  {
         //   count--;
         mass = new IPerson[size2];
         System.arraycopy(mass2, 0, mass, 0, size2);
-        return mass;
+        return mass[index];
 
     }
 
@@ -217,9 +217,9 @@ public class Repository  {
 
 
         }
-        mass=mass2;
+       // mass=mass2;
 
-        return mass;
+        return mass2;
     }
 /**
      * Method readFromFileInRepository - read file and add to array "mass" with method add(IPerson obj)
@@ -241,12 +241,15 @@ public class Repository  {
 
 
 
-/*public IRepository searchBy(Predicate<IPerson> condition)
+public IRepository searchBy(Predicate<IPerson> condition)
 {
-    IRepository param;
-   // for (int i = 0; i < mass.length; i++) {
-        if(condition.test(param))
-   // }
-    return (IRepository) condition;
-}*/
+    IRepository buf=null;
+   for(int i=0;i<mass.length;i++)
+   {
+       if(condition.test(mass[i]))  buf=(IRepository) this;
+   }
+    return buf;
+
+}
+
 }
