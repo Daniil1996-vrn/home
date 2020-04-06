@@ -1,0 +1,49 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="https://www.howtodoinjava.com/xml/school"
+           targetNamespace="https://www.howtodoinjava.com/xml/school" elementFormDefault="qualified">
+
+    <xs:simpleType name="enum" final="restriction" >
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MALE" />
+            <xs:enumeration value="FEMALE" />
+
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <xs:element name="PersonDetailsRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Id" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="PersonDetailsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PersonForSoap" type="tns:PersonForSoap"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="PersonForSoap">
+        <xs:sequence>
+            <xs:element name="Id" type="xs:integer"/>
+            <xs:element name="FirstName" type="xs:string"/>
+            <xs:element name="LastName" type="xs:string"/>
+
+
+            <xs:element name="Birthdate" type="xs:date"/>
+            <xs:element name="Age" type="xs:integer"/>
+
+            <xs:element name="Gender" type="tns:enum"/>
+
+            <xs:element name="Name" type="xs:string"/>
+
+            <xs:element name="Salary" type="xs:decimal"/>
+
+
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>
