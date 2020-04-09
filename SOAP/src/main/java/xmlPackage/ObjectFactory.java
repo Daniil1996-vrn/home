@@ -62,4 +62,9 @@ public class ObjectFactory {
         return new PersonDetailsRequest();
     }
 
+    public PersonDetailsRequestList createPersonDetailsRequestList() {return new PersonDetailsRequestList();}
+
+    public PersonDetailsResponseList createPersonDetailsResponseList() {return new PersonDetailsResponseList();}
+
+
 }

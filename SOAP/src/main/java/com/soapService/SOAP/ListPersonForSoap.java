@@ -12,6 +12,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Component
@@ -86,9 +87,20 @@ public class ListPersonForSoap {
         return null;
     }
 
-    public Stream<PersonForSoap> twoMethod(int age) {
+    public Stream<PersonForSoap> twoMethod(Integer age) {
         //BigDecimal valDouble = new BigDecimal(5000);
         return listPFS.stream().filter(s -> s.getAge() > age);
+
+
+    }
+
+    public List<PersonForSoap> findListAge(Integer age) {
+        //BigDecimal valDouble = new BigDecimal(5000);
+
+        List<PersonForSoap> listPersonForSoap= listPFS.stream().filter(s -> s.getAge() > age).collect(Collectors.toList());
+        return listPersonForSoap;
+
+
 
 
     }

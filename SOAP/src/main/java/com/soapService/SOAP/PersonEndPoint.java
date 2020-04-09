@@ -7,7 +7,9 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 import xmlPackage.PersonDetailsRequest;
+import xmlPackage.PersonDetailsRequestList;
 import xmlPackage.PersonDetailsResponse;
+import xmlPackage.PersonDetailsResponseList;
 
 @Endpoint
 public class PersonEndPoint {
@@ -29,5 +31,18 @@ public class PersonEndPoint {
 
         return response;
     }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "PersonDetailsRequestList")
+    @ResponsePayload
+    public PersonDetailsResponseList getPersonList(@RequestPayload PersonDetailsRequestList requestList) {
+        PersonDetailsResponseList response = new PersonDetailsResponseList();
+
+
+        response.setListPersonForSoap(listPersonForSoap.findListAge(requestList.getAge()));
+
+        return response;
+    }
+
+
 
 }

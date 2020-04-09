@@ -18,6 +18,8 @@
         </xs:complexType>
     </xs:element>
 
+
+
     <xs:element name="PersonDetailsResponse">
         <xs:complexType>
             <xs:sequence>
@@ -25,6 +27,47 @@
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
+
+    <xs:element name="PersonDetailsRequestList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Age" type="xs:integer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="PersonDetailsResponseList">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="listPerson"  maxOccurs="unbounded" type="tns:listPerson"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="listPerson">
+        <xs:sequence>
+            <xs:element name="Id" type="xs:integer"/>
+            <xs:element name="FirstName" type="xs:string"/>
+            <xs:element name="LastName" type="xs:string"/>
+
+
+            <xs:element name="Birthdate" type="xs:date"/>
+            <xs:element name="Age" type="xs:integer"/>
+
+            <xs:element name="Gender" type="tns:enum"/>
+
+            <xs:element name="Name" type="xs:string"/>
+
+            <xs:element name="Salary" type="xs:decimal"/>
+
+
+        </xs:sequence>
+    </xs:complexType>
+
+
 
     <xs:complexType name="PersonForSoap">
         <xs:sequence>
