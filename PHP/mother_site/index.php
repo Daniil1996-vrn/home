@@ -1,0 +1,122 @@
+<?php
+echo<<<_END
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+  
+   <meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+    <title>Сайт работ по биологии</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style2.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      
+      <style>
+ .row{
+  height: 100%;
+     width: 20%
+  background: #00B0D8;
+ }
+</style>
+  </head>
+
+  <body>
+      
+    <div class="navbar  navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="security/articles.html"  target="frame1">Главная</a></li>
+            <li><a href="registration.html" target="frame1">Контакты</a></li>
+            <li><a href="zagolovok_kto.html" target="frame1">О нас</a></li>
+              
+          </ul>
+            
+            
+            
+             <ul class="nav navbar-nav navbar-right">
+            <li><a href="security/vhod.php" target="_blank" >Войти</a></li>
+            
+          </ul>
+           
+          <form class="navbar-form navbar-right" action="security/search.php" method="post" target="frame1">
+            <input type="text" class="form-control" placeholder="Поиск..." name="search">
+               
+              <button class="btn btn-primary form-control">Найти</button>
+          </form>
+            
+            
+            
+        </div>
+          
+        
+          
+          <!-- /.nav-collapse -->
+      </div><!-- /.container -->
+    </div><!-- /.navbar -->
+      
+     
+      
+   <div class="row" style="background-color:azure">
+     
+        <div class="col-lg-2 col-md-2">
+
+           
+   </div> 
+      
+       
+        <div class="col-lg-8 col-md-8" style="background-color:white">
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe name="frame1" src="security/articles.html" class="embed-responsive-item"  width=100%></iframe>
+</div>
+           
+   </div> 
+       <div class="col-lg-2 col-md-2 " style="background-color:azure">
+
+           
+   </div> 
+       
+  </div> 
+      
+      <footer style="background-color:azure">
+      All right reserved
+      </footer>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
+_END;
+
+?>

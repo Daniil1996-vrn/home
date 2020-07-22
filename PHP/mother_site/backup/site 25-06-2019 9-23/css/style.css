@@ -1,0 +1,8 @@
+a.spoiler:after
+{
+content:" [-]";
+}
+a.spoiler.collapsed:before
+{
+content:" [+]";
+}

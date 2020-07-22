@@ -1,0 +1,3 @@
+<?php
+setcookie("city", 'Vegas');
+?>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+<script src="js/jquery.js"></script>
+    <title>Off Canvas Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style2.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      
+     
+  </head>
+
+  <body>
+      
+   <form action="add_file.php" method="post" id="my_form" enctype="multipart/form-data">
+  <p>
+    <label for="my_file">Файл:</label>
+      <input type="file" name="somename" id="my_file">
+        <progress id="progressbar" value="0" max="100"></progress>
+  </p>
+  <input type="submit" id="submit" value="Отправить">
+</form>
+      
+      <script>
+      $(function(){
+  var progressBar = $('#progressbar');
+  $('#my_form').on('submit', function(e){
+    e.preventDefault();
+    var $that = $(this),
+        formData = new FormData($that.get(0));
+    $.ajax({
+      url: $that.attr('action'),
+      type: $that.attr('method'),
+      contentType: false,
+      processData: false,
+      data: formData,
+      dataType: 'json',
+      xhr: function(){
+        var xhr = $.ajaxSettings.xhr(); // получаем объект XMLHttpRequest
+        xhr.upload.addEventListener('progress', function(evt){ // добавляем обработчик события progress (onprogress)
+          if(evt.lengthComputable) { // если известно количество байт
+            // высчитываем процент загруженного
+            var percentComplete = Math.ceil(evt.loaded / evt.total * 100);
+            // устанавливаем значение в атрибут value тега <progress>
+            // и это же значение альтернативным текстом для браузеров, не поддерживающих <progress>
+            progressBar.val(percentComplete).text('Загружено ' + percentComplete + '%');
+          }
+        }, false);
+        return xhr;
+      },
+      success: function(json){
+        if(json){
+          $that.after(json);
+        }
+      }
+    });
+  });
+});
+      </script>
+
+ <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>
